@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyectos — María García Ramos</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* Filtros */
+.filters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.filter-btn {
+  font-size: 0.67rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 0.5px solid var(--border);
+  padding: 0.55rem 1.2rem;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: var(--sans);
+  font-weight: 500;
+  border-radius: 2px;
+}
+
+.filter-btn:hover { color: var(--white); border-color: rgba(255,255,255,0.25); }
+
+.filter-btn.active {
+  background: var(--orange);
+  color: var(--white);
+  border-color: var(--orange);
+}
+
+/* Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg2);
+  border: 0.5px solid var(--border);
+  border-radius: 4px;
+  transition: transform 0.25s, border-color 0.25s;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-orange);
+}
+
+.project-card.hidden { display: none; }
+
+.project-thumb {
+  aspect-ratio: 16/10;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-thumb-inner {
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, var(--bg3) 0%, #2a1a0e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--orange);
+  opacity: 0.4;
+  letter-spacing: -0.02em;
+  transition: transform 0.4s, opacity 0.3s;
+  text-transform: uppercase;
+}
+
+.project-card:hover .project-thumb-inner {
+  transform: scale(1.05);
+  opacity: 0.6;
+}
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13,13,13,0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.project-card:hover .project-overlay { opacity: 1; }
+
+.project-overlay-link {
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-decoration: none;
+  border: 0.5px solid var(--orange);
+  padding: 0.65rem 1.4rem;
+  background: var(--orange-dim);
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+
+.project-overlay-link:hover { background: var(--orange); }
+
+.project-info { padding: 1.25rem 1.25rem 1.4rem; }
+
+.project-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+.project-cat {
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 600;
+}
+
+.project-num {
+  font-size: 0.6rem;
+  color: var(--muted);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.project-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.project-desc {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 1024px) {
+  .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+}
+@media (max-width: 768px) {
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  .filters { margin-bottom: 2rem; }
+}
+@media (max-width: 480px) {
+  .projects-grid { grid-template-columns: 1fr; }
+  .filter-btn { font-size: 0.62rem; padding: 0.45rem 0.9rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Portfolio</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="sobre-mi.html">Sobre mí</a></li>
+      <li><a href="trayectoria.html">Trayectoria</a></li>
+      <li><a href="proyectos.html" class="active">Proyectos</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <button class="nav-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-mobile" id="navMobile">
+  <a href="index.html">Home</a>
+  <a href="sobre-mi.html">Sobre mí</a>
+  <a href="trayectoria.html">Trayectoria</a>
+  <a href="proyectos.html" class="active">Proyectos</a>
+  <a href="contacto.html">Contacto</a>
+</div>
+
+<main>
+  <div class="page">
+    <header class="page-header">
+      <p class="page-eyebrow">03 — Trabajos</p>
+      <h1 class="page-title">Proyectos</h1>
+    </header>
+
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="web">Web</button>
+      <button class="filter-btn" data-filter="diseno">Diseño</button>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-card" data-cat="web">
+        <div class="project-thumb">
+          <div class="project-thumb-inner">Web</div>
+          <div class="project-overlay"><a href="" class="project-overlay-link">En proceso...</a></div>
+        </div>
+        <div class="project-info">
+          <div class="project-header"><span class="project-cat">Web · UX/UI</span><span class="project-num">01</span></div>
+          <div class="project-name">TFM</div>
+          <p class="project-desc">Evento de cine adolescente 2000.</p>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="diseno">
+        <div class="project-thumb">
+          <img src="img/Captura de pantalla 2026-06-10 154436.png" alt="Logotipo ACD Gamarra">
+          <div class="project-overlay"><a href="logos.html" class="project-overlay-link">Ver proyecto →</a></div>
+        </div>
+        <div class="project-info">
+          <div class="project-header"><span class="project-cat">Diseño · Branding</span><span class="project-num">02</span></div>
+          <div class="project-name">Logotipo escuela deportiva</div>
+          <p class="project-desc">ACD GAMARRA</p>
+        </div>
+      </div>
+            <div class="project-card" data-cat="diseno">
+        <div class="project-thumb">
+          <img src="img/Captura de pantalla 2026-06-10 154628.png" alt="Logotipo ACD Gamarra">
+          <div class="project-overlay"><a href="tfm.html" class="project-overlay-link">Ver proyecto →</a></div>
+        </div>
+        <div class="project-info">
+          <div class="project-header"><span class="project-cat">Diseño · Branding</span><span class="project-num">03</span></div>
+          <div class="project-name">TFM</div>
+          <p class="project-desc">MasterD</p>
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="web">
+        <div class="project-thumb">
+          <img src="img/Captura de pantalla 2026-06-10 154810.png" alt="Logotipo ACD Gamarra">
+          <div class="project-overlay"><a href="https://mariagarciaramos46.wixsite.com/albertoypaula" class="project-overlay-link">Ver proyecto →</a></div>
+        </div>
+        <div class="project-info">
+          <div class="project-header"><span class="project-cat">Web · UX/UI</span><span class="project-num">04</span></div>
+          <div class="project-name">Web enlace boda</div>
+          
+        </div>
+      </div>
+
+      <div class="project-card" data-cat="diseno">
+        <div class="project-thumb">
+          <img src="img/Captura de pantalla 2026-06-10 154943.png" alt="Logotipo ACD Gamarra">
+          <div class="project-overlay"><a href="boda.html" class="project-overlay-link">Ver proyecto →</a></div>
+        </div>
+        <div class="project-info">
+          <div class="project-header"><span class="project-cat">Diseño · Print</span><span class="project-num">05</span></div>
+          <div class="project-name">Invitaciones boda</div>
+          <p class="project-desc">Diseño de packaging y materiales impresos para boda.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p class="footer-copy">© 2026 María García Ramos</p>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+<script>
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      document.querySelectorAll('.project-card').forEach(card => {
+        card.classList.toggle('hidden', f !== 'all' && card.dataset.cat !== f);
+      });
+    });
+  });
+</script>
+</body>
+</html>

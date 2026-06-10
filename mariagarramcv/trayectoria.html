@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trayectoria — María García Ramos</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.tray-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.tray-col-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 600;
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.tray-col-label::before {
+  content: '';
+  width: 24px; height: 1.5px;
+  background: var(--orange);
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 1.75rem;
+  border-left: 0.5px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 2.75rem;
+}
+
+.tl-item { position: relative; }
+
+.tl-dot {
+  position: absolute;
+  left: -2.2rem;
+  top: 0.35rem;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 0 0 3px var(--bg), 0 0 0 4px rgba(242,101,34,0.4);
+}
+
+.tl-year {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--orange);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.tl-role {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.2rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.tl-company {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.tl-desc {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.75;
+  font-weight: 300;
+}
+
+.tl-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.8rem;
+}
+
+.tl-tag {
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--orange);
+  border: 0.5px solid var(--border-orange);
+  padding: 0.25rem 0.65rem;
+  background: var(--orange-dim);
+  border-radius: 2px;
+  font-weight: 500;
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 1024px) { .tray-grid { gap: 3rem; } }
+@media (max-width: 768px) { .tray-grid { grid-template-columns: 1fr; gap: 3.5rem; } }
+@media (max-width: 480px) {
+  .timeline { padding-left: 1.4rem; }
+  .tl-dot { left: -1.85rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Portfolio</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="sobre-mi.html">Sobre mí</a></li>
+      <li><a href="trayectoria.html" class="active">Trayectoria</a></li>
+      <li><a href="proyectos.html">Proyectos</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <button class="nav-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-mobile" id="navMobile">
+  <a href="index.html">Home</a>
+  <a href="sobre-mi.html">Sobre mí</a>
+  <a href="trayectoria.html" class="active">Trayectoria</a>
+  <a href="proyectos.html">Proyectos</a>
+  <a href="contacto.html">Contacto</a>
+</div>
+
+<main>
+  <div class="page">
+    <header class="page-header">
+      <p class="page-eyebrow">02 — Trayectoria</p>
+      <h1 class="page-title">Experiencia &amp;<br>Formación</h1>
+    </header>
+
+    <div class="tray-grid">
+      <div>
+        <p class="tray-col-label">Experiencia profesional</p>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-year">2025 - Actualidad</div>
+            <div class="tl-role">Marketing digital, Diseño gráfico &amp; Desarrolladora Front-End</div>
+            <div class="tl-company">Freelance</div>
+            <p class="tl-desc">Diseño y desarrollo + interfaces web para clientes de distintos sectores.</p>
+            <div class="tl-tags"><span class="tl-tag">Adobe</span><span class="tl-tag">Figma</span><span class="tl-tag">React</span><span class="tl-tag">Node.js</span><span class="tl-tag">Vite</span><span class="tl-tag">HTML</span><span class="tl-tag">CSS</span><span class="tl-tag">TAILWIND</span><span class="tl-tag">JAVASCRIPT</span></div>
+          </div>
+            <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-year">2025-Actualidad</div>
+            <div class="tl-role">Secretaria</div>
+            <div class="tl-company">Maldonado Gonzalez Abogados</div>
+            <p class="tl-desc">Gestión administrativa y procedimientos legales.</p>
+            <div class="tl-tags"><span class="tl-tag">MnPrograms</span><span class="tl-tag">Outlook</span>
+          </div>
+            </div>
+            <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-year">2024-2025</div>
+            <div class="tl-role">Administrativa</div>
+            <div class="tl-company">Autos Dominguez</div>
+            <p class="tl-desc">Gestión administrativa, proceso de ventas y atención al cliente</p>
+            <div class="tl-tags"><span class="tl-tag">Factusol</span><span class="tl-tag">Holded</span><span class="tl-tag">Excel</span></div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-year">2023</div>
+            <div class="tl-role">Digital Marketing Specialist &amp; Fashion Catalogue Designer</div>
+            <div class="tl-company">Harper&Neyer</div>
+            <p class="tl-desc">Estrategia de contenido para marca de moda. Diseño de catálogos y contenidos digitales.</p>
+            <div class="tl-tags"><span class="tl-tag">Illustrator</span><span class="tl-tag">Photoshop</span><span class="tl-tag">Metricool</span></div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-year">2022</div>
+            <div class="tl-role">Dpendienta</div>
+            <div class="tl-company">Kiwoko</div>
+            <p class="tl-desc">Atención al cliente, gestión de stock y organización de tienda.
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-year">2022</div>
+            <div class="tl-role">Internal Coms Support</div>
+            <div class="tl-company">Grupo Iskaypet</div>
+            <p class="tl-desc">Gestión de contenido y comunicaciones internas. Creación de eventos y material corporativo.</p>
+            
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="tray-col-label">Formación académica</p>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-year">2025-2026</div>
+            <div class="tl-role">Máster Desarrollo Web UX/UI</div>
+            <div class="tl-company">La Gauss</div>
+            <p class="tl-desc">Diseño de interfaces centradas en el usuario como en la programación frontend para crear proyectos web e interactivos completos.</p>
+            <div class="tl-tags"><span class="tl-tag">FIGMA</span><span class="tl-tag">REACT</span><span class="tl-tag">HTML</span><span class="tl-tag">CSS</span><span class="tl-tag">JavaScript</span><span class="tl-tag">Tailwind</span></div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-year">2022-2023</div>
+            <div class="tl-role">Máster en Diseño Gráfico y Marketing Digital</div>
+            <div class="tl-company">MasterD</div>
+            <p class="tl-desc">Identidad visual, tipografía, dirección de arte y comunicación publicitaria.</p>
+            <div class="tl-tags"><span class="tl-tag">PHOTOSHOP</span><span class="tl-tag">ILLUSTRATOR</span><span class="tl-tag">INDESIGN</span></div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-year">2020-2022</div>
+            <div class="tl-role">Marketing y Publicidad</div>
+            <div class="tl-company">Medac Nova</div>
+            <p class="tl-desc">Gestionar estrategias digitales, redes sociales, eventos y campañas publicitarias para impulsar las ventas de las empresas.</p>
+            <div class="tl-tags"><span class="tl-tag">SEO/SEM</span><span class="tl-tag">ADOBE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p class="footer-copy">© 2026 María García Ramos</p>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+</body>
+</html>

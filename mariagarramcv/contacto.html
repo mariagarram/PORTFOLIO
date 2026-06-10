@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto — María García Ramos</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* Fondo ligeramente más cálido en contacto */
+body { background: var(--bg2); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 6rem;
+  align-items: start;
+}
+
+/* Lado izquierdo */
+.contact-lead {
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.contact-lead em { font-style: normal; color: var(--orange); display: block; }
+
+.contact-sub {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+  font-weight: 300;
+  max-width: 340px;
+}
+
+.contact-links { display: flex; flex-direction: column; gap: 0; }
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.88rem;
+  transition: color 0.2s, background 0.2s;
+  padding: 1rem 0;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.contact-link:first-child { border-top: 0.5px solid var(--border); }
+.contact-link:hover { color: var(--orange); }
+.contact-link:hover .cl-icon { border-color: var(--orange); color: var(--orange); }
+
+.cl-icon {
+  width: 36px; height: 36px;
+  border: 0.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  flex-shrink: 0;
+  font-weight: 600;
+  transition: border-color 0.2s, color 0.2s;
+  border-radius: 2px;
+}
+
+/* Formulario */
+.contact-form { display: flex; flex-direction: column; gap: 1rem; }
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-field { display: flex; flex-direction: column; gap: 0.4rem; }
+
+.form-field label {
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.form-field input,
+.form-field textarea {
+  background: var(--bg3);
+  border: 0.5px solid var(--border);
+  color: var(--white);
+  padding: 0.9rem 1rem;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  outline: none;
+  resize: none;
+  transition: border-color 0.2s;
+  border-radius: 2px;
+  -webkit-appearance: none;
+}
+
+.form-field input:focus,
+.form-field textarea:focus { border-color: var(--orange); }
+
+.form-field input::placeholder,
+.form-field textarea::placeholder { color: rgba(255,255,255,0.18); }
+
+.btn-send {
+  background: var(--orange);
+  color: var(--white);
+  padding: 1rem 2.5rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background 0.2s, transform 0.15s;
+  font-family: var(--sans);
+  border-radius: 2px;
+}
+
+.btn-send:hover { background: var(--orange2); transform: translateY(-1px); }
+
+/* Toast */
+.toast {
+  display: none;
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--orange);
+  color: var(--white);
+  padding: 0.85rem 2rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  z-index: 200;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+.toast.show { display: block; }
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 1024px) { .contact-grid { gap: 3.5rem; } }
+@media (max-width: 768px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .form-row { grid-template-columns: 1fr; }
+  .contact-sub { max-width: 100%; }
+}
+@media (max-width: 480px) {
+  .btn-send { width: 100%; text-align: center; align-self: stretch; }
+  .contact-lead { font-size: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Portfolio</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="sobre-mi.html">Sobre mí</a></li>
+      <li><a href="trayectoria.html">Trayectoria</a></li>
+      <li><a href="proyectos.html">Proyectos</a></li>
+      <li><a href="contacto.html" class="active">Contacto</a></li>
+    </ul>
+    <button class="nav-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-mobile" id="navMobile">
+  <a href="index.html">Home</a>
+  <a href="sobre-mi.html">Sobre mí</a>
+  <a href="trayectoria.html">Trayectoria</a>
+  <a href="proyectos.html">Proyectos</a>
+  <a href="contacto.html" class="active">Contacto</a>
+</div>
+
+<main>
+  <div class="page">
+    <header class="page-header">
+      <p class="page-eyebrow">04 — Contacto</p>
+      <h1 class="page-title">¿Tienes una idea?<br>Hablemos.</h1>
+    </header>
+
+    <div class="contact-grid">
+      <div>
+        <p class="contact-sub">
+        
+        </p>
+        <div class="contact-links">
+          <a href="mailto:mariagarciaramos46@gmail.com" class="contact-link">
+            <div class="cl-icon">@</div>
+            <span>mariagarciaramos46@gmail.com</span>
+          </a>
+          <a href="https://www.linkedin.com/in/mariagarram" target="_blank" rel="noopener" class="contact-link">
+            <div class="cl-icon">in</div>
+            <span>www.linkedin.com/in/mariagarram</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<div class="toast" id="toast">¡Mensaje enviado! Te responderé pronto.</div>
+
+<footer>
+  <div class="footer-inner">
+    <p class="footer-copy">© 2026 María García Ramos</p>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+<script>
+  document.getElementById('contactForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3500);
+    e.target.reset();
+  });
+</script>
+</body>
+</html>

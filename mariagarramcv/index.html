@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>María García Ramos — Portfolio</title>
+<meta name="description" content="Portfolio de María García Ramos: marketing digital, diseño gráfico y desarrollo web front-end UX/UI.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  padding-top: 60px;
+  gap: 3rem;
+}
+
+.hero-content { padding: 4rem 0; }
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 600;
+  margin-bottom: 1.75rem;
+}
+
+.hero-tag::before {
+  content: '';
+  width: 24px; height: 1.5px;
+  background: var(--orange);
+}
+
+.hero-title {
+  font-size: clamp(3.5rem, 6.5vw, 6rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  margin-bottom: 1.75rem;
+  text-transform: uppercase;
+}
+
+.hero-title .highlight { color: var(--orange); }
+
+.hero-subtitle {
+  font-size: clamp(0.9rem, 1.4vw, 1rem);
+  color: var(--muted);
+  line-height: 1.75;
+  max-width: 400px;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+
+.hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+/* Foto */
+.hero-image-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: 560px;
+}
+
+.hero-img-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--bg3) 0%, #2a1a0e 100%);
+  border: 0.5px solid var(--border-orange);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.hero-img-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top right, rgba(242,101,34,0.18) 0%, transparent 65%);
+}
+
+.hero-img {
+  position: relative;
+  z-index: 1;
+  width: 82%;
+  max-width: 380px;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border-radius: 2px;
+  margin-bottom: -1px;
+}
+
+.hero-img-placeholder {
+  position: relative;
+  z-index: 1;
+  width: 82%;
+  max-width: 380px;
+  aspect-ratio: 3/4;
+  background: var(--bg3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+}
+
+/* Badge flotante */
+.hero-badge {
+  position: absolute;
+  bottom: 2rem;
+  left: -1.5rem;
+  z-index: 2;
+  background: var(--orange);
+  color: var(--white);
+  padding: 0.9rem 1.25rem;
+  border-radius: 2px;
+  min-width: 140px;
+}
+
+.hero-badge-num {
+  font-size: 1.8rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.hero-badge-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-top: 0.2rem;
+}
+
+/* Skills strip */
+.skills-strip {
+  border-top: 0.5px solid var(--border);
+  border-bottom: 0.5px solid var(--border);
+  background: var(--bg2);
+  overflow: hidden;
+}
+
+.skills-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1.25rem 2rem;
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.skill-tag {
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.skill-sep {
+  width: 4px; height: 4px;
+  background: var(--orange);
+  border-radius: 50%;
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+/* ═══ TABLET ≤1024px ═══ */
+@media (max-width: 1024px) {
+  .hero { gap: 2rem; padding: 0 1.5rem; padding-top: 60px; }
+  .hero-image-wrap { min-height: 460px; }
+  .hero-badge { left: -0.5rem; }
+}
+
+/* ═══ TABLET PORTRAIT ≤768px ═══ */
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 7rem 1.25rem 3.5rem;
+    gap: 2.5rem;
+    text-align: center;
+  }
+  .hero-content { padding: 0; }
+  .hero-tag { justify-content: center; }
+  .hero-subtitle { max-width: 100%; margin-left: auto; margin-right: auto; }
+  .hero-ctas { justify-content: center; }
+  .hero-image-wrap { min-height: auto; }
+  .hero-img, .hero-img-placeholder { width: 60%; max-width: 280px; }
+  .hero-badge { left: 50%; transform: translateX(-50%); bottom: -1.5rem; }
+  .skills-inner { gap: 1.25rem; padding: 1.25rem; }
+}
+
+/* ═══ MÓVIL ≤480px ═══ */
+@media (max-width: 480px) {
+  .hero { padding: 6rem 1rem 3rem; gap: 2rem; }
+  .hero-title { font-size: 3.2rem; }
+  .hero-ctas { flex-direction: column; align-items: center; }
+  .btn-primary, .btn-outline { width: 100%; text-align: center; }
+  .hero-img, .hero-img-placeholder { width: 68%; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Portfolio</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="sobre-mi.html">Sobre mí</a></li>
+      <li><a href="trayectoria.html">Trayectoria</a></li>
+      <li><a href="proyectos.html">Proyectos</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <button class="nav-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-mobile" id="navMobile">
+  <a href="index.html" class="active">Home</a>
+  <a href="sobre-mi.html">Sobre mí</a>
+  <a href="trayectoria.html">Trayectoria</a>
+  <a href="proyectos.html">Proyectos</a>
+  <a href="contacto.html">Contacto</a>
+</div>
+
+<main>
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-tag">Diseñadora &amp; Desarrolladora</span>
+      <h1 class="hero-title">
+        María<br>García<br><span class="highlight">Ramos</span>
+      </h1>
+      <p class="hero-subtitle">
+        Marketing digital, diseño gráfico y desarrollo web (front-end) UX/UI.
+      </p>
+      <div class="hero-ctas">
+        <a href="proyectos.html" class="btn-primary">Ver proyectos →</a>
+        <a href="contacto.html" class="btn-outline">Contacto</a>
+      </div>
+    </div>
+
+    <div class="hero-image-wrap">
+      <div class="hero-img-bg"></div>
+      <img
+        src="img/1632253827024.jpg"
+        alt="María García Ramos"
+        class="hero-img"
+        onerror="this.style.display='none';document.getElementById('ph').style.display='flex';"
+      >
+      <div class="hero-img-placeholder" id="ph" style="display:none;">Foto de María</div>
+      <div class="hero-badge">
+        <div class="hero-badge-num">4+</div>
+        <div class="hero-badge-label">Años apr.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="skills-strip">
+    <div class="skills-inner">
+      <span class="skill-tag">Marketing Digital</span>
+      <span class="skill-sep"></span>
+      <span class="skill-tag">Diseño Gráfico</span>
+      <span class="skill-sep"></span>
+      <span class="skill-tag">Desarrollo Web</span>
+      <span class="skill-sep"></span>
+      <span class="skill-tag">Front-End</span>
+      <span class="skill-sep"></span>
+      <span class="skill-tag">UX / UI</span>
+      <span class="skill-sep"></span>
+      <span class="skill-tag">Branding</span>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p class="footer-copy">© 2026 María García Ramos</p>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+</body>
+</html>

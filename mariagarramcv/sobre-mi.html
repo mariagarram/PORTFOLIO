@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre mí — María García Ramos</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.sobre-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: start;
+}
+
+.sobre-lead {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--white);
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+}
+
+.sobre-lead em { font-style: normal; color: var(--orange); }
+
+.sobre-text {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.85;
+  margin-bottom: 1.25rem;
+  font-weight: 300;
+}
+
+.sobre-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin-top: 3rem;
+  border: 0.5px solid var(--border);
+}
+
+.stat-item {
+  padding: 1.5rem;
+  border-right: 0.5px solid var(--border);
+  border-bottom: 0.5px solid var(--border);
+}
+
+.stat-item:nth-child(2n) { border-right: none; }
+.stat-item:nth-child(3),
+.stat-item:nth-child(4) { border-bottom: none; }
+
+.stat-num {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: var(--orange);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.03em;
+}
+
+.stat-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Skills */
+.skills-col { display: flex; flex-direction: column; gap: 2rem; }
+
+.skills-heading {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.skills-heading::before {
+  content: '';
+  width: 24px; height: 1.5px;
+  background: var(--orange);
+}
+
+.skill-row { display: flex; flex-direction: column; gap: 0.55rem; }
+
+.skill-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--off);
+  font-weight: 500;
+}
+
+.skill-meta span:last-child { color: white; font-weight: 600; }
+
+.skill-bar {
+  height: 2px;
+  background: var(--faint);
+  position: relative;
+  border-radius: 1px;
+}
+
+.skill-fill {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  background: var(--orange);
+  border-radius: 1px;
+  width: 0;
+  transition: width 1s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* Herramientas */
+.tools-section {
+  margin-top: 5rem;
+  padding-top: 4rem;
+  border-top: 0.5px solid var(--border);
+}
+
+.tools-heading {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.tools-heading::before {
+  content: '';
+  width: 24px; height: 1.5px;
+  background: var(--orange);
+}
+
+.tools-grid { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+
+.tool-tag {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 0.5px solid var(--border);
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  background: var(--bg2);
+  transition: border-color 0.2s, color 0.2s;
+  border-radius: 2px;
+}
+
+.tool-tag:hover { border-color: var(--orange); color: var(--orange); }
+
+/* Titulación */
+.titulacion-section {
+  margin-top: 5rem;
+  padding-top: 4rem;
+  border-top: 0.5px solid var(--border);
+}
+
+.titulacion-heading {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 600;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.titulacion-heading::before {
+  content: '';
+  width: 24px; height: 1.5px;
+  background: var(--orange);
+}
+
+.titulacion-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.titulo-card {
+  border: 0.5px solid var(--border);
+  border-radius: 4px;
+  padding: 1.75rem 2rem;
+  background: var(--bg2);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color 0.2s;
+}
+
+.titulo-card:hover { border-color: var(--orange); }
+
+.titulo-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--orange);
+  background: rgba(242,101,34,0.08);
+  border: 0.5px solid rgba(242,101,34,0.3);
+  padding: 0.3rem 0.7rem;
+  border-radius: 2px;
+  width: fit-content;
+}
+
+.titulo-nombre {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.titulo-centro {
+  font-size: 0.8rem;
+  color: var(--off);
+  font-weight: 500;
+}
+
+.titulo-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-top: 0.75rem;
+  border-top: 0.5px solid var(--border);
+  margin-top: 0.25rem;
+}
+
+.titulo-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.titulo-meta-label {
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.titulo-meta-value {
+  font-size: 0.78rem;
+  color: var(--off);
+  font-weight: 500;
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 1024px) { .sobre-grid { gap: 3.5rem; } }
+@media (max-width: 768px) {
+  .sobre-grid { grid-template-columns: 1fr; gap: 3rem; }
+}
+@media (max-width: 480px) {
+  .stat-num { font-size: 2.2rem; }
+  .tools-section { margin-top: 3rem; padding-top: 2.5rem; }
+  .titulacion-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Portfolio</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="sobre-mi.html" class="active">Sobre mí</a></li>
+      <li><a href="trayectoria.html">Trayectoria</a></li>
+      <li><a href="proyectos.html">Proyectos</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <button class="nav-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-mobile" id="navMobile">
+  <a href="index.html">Home</a>
+  <a href="sobre-mi.html" class="active">Sobre mí</a>
+  <a href="trayectoria.html">Trayectoria</a>
+  <a href="proyectos.html">Proyectos</a>
+  <a href="contacto.html">Contacto</a>
+</div>
+
+<main>
+  <div class="page">
+    <header class="page-header">
+      <p class="page-eyebrow">01 — Perfil</p>
+      <h1 class="page-title">Sobre mí</h1>
+    </header>
+
+    <div class="sobre-grid">
+      <div>
+        <p class="sobre-text">Soy María García Ramos, diseñadora y desarrolladora apasionada por crear experiencias digitales que conectan con las personas. Combino el pensamiento visual con la lógica técnica para construir proyectos que funcionan y que enamoran.</p>
+        <p class="sobre-text">Mi enfoque integra el marketing digital, el diseño gráfico y el desarrollo front-end en una sola visión coherente: cada píxel tiene un por qué.</p>
+        <p class="sobre-text">Me mueve la curiosidad y el detalle. Creo que los mejores proyectos nacen de escuchar bien, entender el contexto y atreverse a hacer algo distinto.</p>
+        <div class="sobre-stats">
+          <div class="stat-item"><div class="stat-num">4+</div><div class="stat-label">Años de apr.</div></div>
+          <div class="stat-item"><div class="stat-num">3+</div><div class="stat-label">Proyectos</div></div>
+        </div>
+      </div>
+
+      <div class="skills-col">
+        <p class="skills-heading">Habilidades</p>
+        <div class="skill-row">
+          <div class="skill-meta"><span>Diseño Gráfico</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="100"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-meta"><span>UX / UI</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="100"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-meta"><span>Marketing Digital</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="100"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-meta"><span>Desarrollo Front-End</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="100"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-meta"><span>Branding</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="100"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-meta"><span>Social Media</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="100"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tools-section">
+      <p class="tools-heading">Herramientas</p>
+      <div class="tools-grid">
+        <span class="tool-tag">Figma</span>
+        <span class="tool-tag">Illustrator</span>
+        <span class="tool-tag">Photoshop</span>
+        <span class="tool-tag">InDesign</span>
+        <span class="tool-tag">HTML / CSS</span>
+        <span class="tool-tag">JavaScript</span>
+        <span class="tool-tag">React</span>
+        <span class="tool-tag">Node.js</span>
+        <span class="tool-tag">Vite</span>
+        <span class="tool-tag">Tailwind CSS</span>
+        <span class="tool-tag">WordPress</span>
+        <span class="tool-tag">Google Analytics</span>
+
+      </div>
+    </div>
+    <div class="titulacion-section">
+      <p class="titulacion-heading">Titulación Académica</p>
+      <div class="titulacion-grid">
+
+        <div class="titulo-card">
+          <span class="titulo-badge">Grado Superior · Oficial</span>
+          <p class="titulo-nombre">Técnica Superior en Marketing y Publicidad</p>
+          <p class="titulo-centro">Medac Nova</p>
+          <div class="titulo-meta">
+            <div class="titulo-meta-item">
+              <span class="titulo-meta-label">Finalización</span>
+              <span class="titulo-meta-value">Junio 2022</span>
+            </div>
+            <div class="titulo-meta-item">
+              <span class="titulo-meta-label">Validez</span>
+              <span class="titulo-meta-value">Nacional</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="titulo-card">
+          <span class="titulo-badge">Máster · Especialización</span>
+          <p class="titulo-nombre">Desarrollo Web UX/UI</p>
+          <p class="titulo-centro">La Gauss</p>
+          <div class="titulo-meta">
+            <div class="titulo-meta-item">
+              <span class="titulo-meta-label">Finalización</span>
+              <span class="titulo-meta-value">Junio 2026</span>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="titulo-card">
+          <span class="titulo-badge">Máster · Especialización</span>
+          <p class="titulo-nombre">Máster en Marketing Digital, Diseño Gráfico y Publicidad Digital</p>
+          <p class="titulo-centro">MasterD</p>
+          <div class="titulo-meta">
+            <div class="titulo-meta-item">
+              <span class="titulo-meta-label">Finalización</span>
+              <span class="titulo-meta-value">Diciembre 2023</span>
+            </div>
+            <div class="titulo-meta-item">
+              <span class="titulo-meta-label">Carga</span>
+              <span class="titulo-meta-value">40 ECTS · 1000h</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p class="footer-copy">© 2026 María García Ramos</p>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+<script>
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.skill-fill').forEach(el => {
+      el.style.width = el.dataset.w + '%';
+    });
+  });
+</script>
+</body>
+</html>
