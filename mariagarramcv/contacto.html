@@ -12,9 +12,8 @@ body { background: var(--bg2); }
 
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1.35fr;
-  gap: 6rem;
-  align-items: start;
+  grid-template-columns: 1fr;
+  max-width: 560px;
 }
 
 /* Lado izquierdo */
@@ -39,126 +38,54 @@ body { background: var(--bg2); }
   max-width: 340px;
 }
 
-.contact-links { display: flex; flex-direction: column; gap: 0; }
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: 20px;
+  border: 0.5px solid var(--border);
+  background: linear-gradient(150deg, var(--bg3) 0%, #241407 100%);
+  padding: 1.5rem;
+}
 
 .contact-link {
   display: flex;
   align-items: center;
   gap: 1rem;
-  color: var(--muted);
+  color: var(--off);
   text-decoration: none;
   font-size: 0.88rem;
-  transition: color 0.2s, background 0.2s;
-  padding: 1rem 0;
-  border-bottom: 0.5px solid var(--border);
+  font-weight: 500;
+  transition: color 0.2s, background 0.2s, transform 0.2s;
+  padding: 1rem 1.25rem;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.02);
 }
 
-.contact-link:first-child { border-top: 0.5px solid var(--border); }
-.contact-link:hover { color: var(--orange); }
-.contact-link:hover .cl-icon { border-color: var(--orange); color: var(--orange); }
+.contact-link:hover { color: var(--orange); background: var(--orange-dim); transform: translateY(-2px); }
+.contact-link:hover .cl-icon { border-color: var(--orange); color: var(--orange); background: var(--orange); }
+.contact-link:hover .cl-icon { color: var(--white); }
 
 .cl-icon {
-  width: 36px; height: 36px;
-  border: 0.5px solid var(--border);
+  width: 42px; height: 42px;
+  border: 0.5px solid var(--border-orange);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.62rem;
+  font-size: 0.7rem;
   letter-spacing: 0.06em;
-  color: var(--muted);
+  color: var(--orange);
   flex-shrink: 0;
-  font-weight: 600;
-  transition: border-color 0.2s, color 0.2s;
-  border-radius: 2px;
-}
-
-/* Formulario */
-.contact-form { display: flex; flex-direction: column; gap: 1rem; }
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-.form-field { display: flex; flex-direction: column; gap: 0.4rem; }
-
-.form-field label {
-  font-size: 0.6rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--muted);
-  font-weight: 600;
-}
-
-.form-field input,
-.form-field textarea {
-  background: var(--bg3);
-  border: 0.5px solid var(--border);
-  color: var(--white);
-  padding: 0.9rem 1rem;
-  font-family: var(--sans);
-  font-size: 0.9rem;
-  outline: none;
-  resize: none;
-  transition: border-color 0.2s;
-  border-radius: 2px;
-  -webkit-appearance: none;
-}
-
-.form-field input:focus,
-.form-field textarea:focus { border-color: var(--orange); }
-
-.form-field input::placeholder,
-.form-field textarea::placeholder { color: rgba(255,255,255,0.18); }
-
-.btn-send {
-  background: var(--orange);
-  color: var(--white);
-  padding: 1rem 2.5rem;
-  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  border: none;
-  cursor: pointer;
-  align-self: flex-start;
-  transition: background 0.2s, transform 0.15s;
-  font-family: var(--sans);
-  border-radius: 2px;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  border-radius: 50%;
 }
-
-.btn-send:hover { background: var(--orange2); transform: translateY(-1px); }
-
-/* Toast */
-.toast {
-  display: none;
-  position: fixed;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--orange);
-  color: var(--white);
-  padding: 0.85rem 2rem;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  z-index: 200;
-  border-radius: 2px;
-  white-space: nowrap;
-}
-
-.toast.show { display: block; }
 
 /* ═══ RESPONSIVE ═══ */
-@media (max-width: 1024px) { .contact-grid { gap: 3.5rem; } }
 @media (max-width: 768px) {
-  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .form-row { grid-template-columns: 1fr; }
   .contact-sub { max-width: 100%; }
 }
 @media (max-width: 480px) {
-  .btn-send { width: 100%; text-align: center; align-self: stretch; }
   .contact-lead { font-size: 2rem; }
 }
 </style>
@@ -192,14 +119,13 @@ body { background: var(--bg2); }
 <main>
   <div class="page">
     <header class="page-header">
-      <p class="page-eyebrow">04 — Contacto</p>
       <h1 class="page-title">¿Tienes una idea?<br>Hablemos.</h1>
     </header>
 
     <div class="contact-grid">
       <div>
         <p class="contact-sub">
-        
+          ¿Tienes un proyecto en mente o quieres saber más sobre mi trabajo? Escríbeme y te responderé lo antes posible.
         </p>
         <div class="contact-links">
           <a href="mailto:mariagarciaramos46@gmail.com" class="contact-link">
@@ -217,8 +143,6 @@ body { background: var(--bg2); }
   </div>
 </main>
 
-<div class="toast" id="toast">¡Mensaje enviado! Te responderé pronto.</div>
-
 <footer>
   <div class="footer-inner">
     <p class="footer-copy">© 2026 María García Ramos</p>
@@ -226,14 +150,5 @@ body { background: var(--bg2); }
 </footer>
 
 <script src="nav.js"></script>
-<script>
-  document.getElementById('contactForm').addEventListener('submit', e => {
-    e.preventDefault();
-    const toast = document.getElementById('toast');
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 3500);
-    e.target.reset();
-  });
-</script>
 </body>
 </html>

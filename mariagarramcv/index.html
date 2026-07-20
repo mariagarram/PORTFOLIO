@@ -8,144 +8,164 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-/* ── HERO ── */
-.hero {
-  min-height: 100vh;
+/* ── HERO v2 ── */
+.hero-v2 {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 2rem;
   padding-top: 60px;
-  gap: 3rem;
+  min-height: 100vh;
+  gap: 2.5rem;
 }
 
-.hero-content { padding: 4rem 0; }
-
-.hero-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--orange);
-  font-weight: 600;
-  margin-bottom: 1.75rem;
+.hero-v2-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 4rem 0;
 }
 
-.hero-tag::before {
-  content: '';
-  width: 24px; height: 1.5px;
-  background: var(--orange);
-}
+.hero-v2-name { display: flex; flex-direction: column; }
 
-.hero-title {
-  font-size: clamp(3.5rem, 6.5vw, 6rem);
+.hv-line {
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
   font-weight: 900;
-  line-height: 0.95;
+  line-height: 0.98;
   letter-spacing: -0.03em;
   color: var(--white);
-  margin-bottom: 1.75rem;
   text-transform: uppercase;
 }
 
-.hero-title .highlight { color: var(--orange); }
+.hv-accent { color: var(--orange); }
 
-.hero-subtitle {
-  font-size: clamp(0.9rem, 1.4vw, 1rem);
+.hero-v2-desc {
+  font-size: 0.92rem;
   color: var(--muted);
   line-height: 1.75;
-  max-width: 400px;
-  margin-bottom: 2.5rem;
+  max-width: 420px;
   font-weight: 300;
 }
 
-.hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-/* Foto */
-.hero-image-wrap {
-  position: relative;
+.hero-v2-contact-row {
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  min-height: 560px;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
-.hero-img-bg {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--bg3) 0%, #2a1a0e 100%);
+.hero-v2-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  border-radius: 999px;
   border: 0.5px solid var(--border-orange);
-  border-radius: 4px;
-  overflow: hidden;
+  color: var(--off);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
 
-.hero-img-bg::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at top right, rgba(242,101,34,0.18) 0%, transparent 65%);
-}
-
-.hero-img {
-  position: relative;
-  z-index: 1;
-  width: 82%;
-  max-width: 380px;
-  aspect-ratio: 3/4;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-  border-radius: 2px;
-  margin-bottom: -1px;
-}
-
-.hero-img-placeholder {
-  position: relative;
-  z-index: 1;
-  width: 82%;
-  max-width: 380px;
-  aspect-ratio: 3/4;
-  background: var(--bg3);
+.hero-v2-social span {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--orange);
+  color: var(--bg);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--muted);
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
+  font-size: 0.65rem;
+  font-weight: 800;
+  flex-shrink: 0;
 }
 
-/* Badge flotante */
-.hero-badge {
+.hero-v2-social:hover { background: var(--orange-dim); border-color: var(--orange); color: var(--white); }
+
+.hero-v2-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: var(--orange);
+  color: var(--bg);
+  font-weight: 700;
+  padding: 0.7rem 0.7rem 0.7rem 1.6rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.82rem;
+  letter-spacing: 0.01em;
+  transition: transform 0.2s, background 0.2s;
+}
+.hero-v2-cta:hover { transform: translateY(-2px); background: var(--orange2); }
+
+.hero-v2-cta-icon {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+/* Foto */
+.hero-v2-photo-wrap { position: relative; display: flex; justify-content: center; }
+
+.hero-v2-photo-frame {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  aspect-ratio: 6 / 5;
+  border-radius: 24px;
+  overflow: hidden;
+  background: linear-gradient(150deg, var(--bg3) 0%, #2a1a0e 100%);
+  border: 0.5px solid var(--border-orange);
+}
+
+.hero-v2-photo-frame::before {
+  content: '';
   position: absolute;
-  bottom: 2rem;
-  left: -1.5rem;
+  inset: 0;
+  background: radial-gradient(ellipse at top right, rgba(242,101,34,0.2) 0%, transparent 65%);
+  z-index: 1;
+}
+
+.hero-v2-photo {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.hero-v2-badge {
+  position: absolute;
+  left: -1rem;
+  bottom: 1.5rem;
   z-index: 2;
   background: var(--orange);
-  color: var(--white);
-  padding: 0.9rem 1.25rem;
-  border-radius: 2px;
-  min-width: 140px;
-}
-
-.hero-badge-num {
-  font-size: 1.8rem;
-  font-weight: 900;
+  color: var(--bg);
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  min-width: 68px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   line-height: 1;
-  letter-spacing: -0.03em;
+  box-shadow: 0 12px 28px -8px rgba(242,101,34,0.6);
 }
 
-.hero-badge-label {
-  font-size: 0.62rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  opacity: 0.85;
-  margin-top: 0.2rem;
-}
+.hero-v2-badge-num { font-size: 1.15rem; font-weight: 900; letter-spacing: -0.02em; }
+.hero-v2-badge-label { font-size: 0.52rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; margin-top: 0.15rem; }
 
-/* Skills strip */
+/* Skills strip — marquee */
 .skills-strip {
   border-top: 0.5px solid var(--border);
   border-bottom: 0.5px solid var(--border);
@@ -153,15 +173,25 @@
   overflow: hidden;
 }
 
-.skills-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 1.25rem 2rem;
+.skills-marquee {
   display: flex;
-  gap: 2.5rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+.skills-track {
+  display: flex;
+  flex-shrink: 0;
   align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
+  gap: 2.5rem;
+  padding: 1.25rem 2rem;
+  animation: skills-scroll 22s linear infinite;
+  will-change: transform;
+}
+
+@keyframes skills-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
 }
 
 .skill-tag {
@@ -173,47 +203,31 @@
   white-space: nowrap;
 }
 
-.skill-sep {
-  width: 4px; height: 4px;
-  background: var(--orange);
-  border-radius: 50%;
-  flex-shrink: 0;
-  opacity: 0.6;
-}
-
 /* ═══ TABLET ≤1024px ═══ */
 @media (max-width: 1024px) {
-  .hero { gap: 2rem; padding: 0 1.5rem; padding-top: 60px; }
-  .hero-image-wrap { min-height: 460px; }
-  .hero-badge { left: -0.5rem; }
+  .hero-v2 { gap: 1.75rem; padding: 0 1.5rem; padding-top: 60px; }
+  .hero-v2-left { padding: 2.5rem 0; }
 }
 
 /* ═══ TABLET PORTRAIT ≤768px ═══ */
 @media (max-width: 768px) {
-  .hero {
+  .hero-v2 {
     grid-template-columns: 1fr;
     min-height: auto;
     padding: 7rem 1.25rem 3.5rem;
     gap: 2.5rem;
-    text-align: center;
   }
-  .hero-content { padding: 0; }
-  .hero-tag { justify-content: center; }
-  .hero-subtitle { max-width: 100%; margin-left: auto; margin-right: auto; }
-  .hero-ctas { justify-content: center; }
-  .hero-image-wrap { min-height: auto; }
-  .hero-img, .hero-img-placeholder { width: 60%; max-width: 280px; }
-  .hero-badge { left: 50%; transform: translateX(-50%); bottom: -1.5rem; }
-  .skills-inner { gap: 1.25rem; padding: 1.25rem; }
+  .hero-v2-left { padding: 0; align-items: center; text-align: center; }
+  .hero-v2-contact-row { justify-content: center; }
+  .hero-v2-photo-wrap { order: -1; }
+  .hero-v2-photo-frame { max-width: 320px; }
+  .skills-track { gap: 1.25rem; padding: 1.25rem; }
 }
 
 /* ═══ MÓVIL ≤480px ═══ */
 @media (max-width: 480px) {
-  .hero { padding: 6rem 1rem 3rem; gap: 2rem; }
-  .hero-title { font-size: 3.2rem; }
-  .hero-ctas { flex-direction: column; align-items: center; }
-  .btn-primary, .btn-outline { width: 100%; text-align: center; }
-  .hero-img, .hero-img-placeholder { width: 68%; }
+  .hero-v2-photo-frame { max-width: 260px; }
+  .hero-v2-cta { width: 100%; justify-content: space-between; }
 }
 </style>
 </head>
@@ -244,51 +258,116 @@
 </div>
 
 <main>
-  <section class="hero">
-    <div class="hero-content">
-      <span class="hero-tag">Diseñadora &amp; Desarrolladora</span>
-      <h1 class="hero-title">
-        María<br>García<br><span class="highlight">Ramos</span>
-      </h1>
-      <p class="hero-subtitle">
-        Marketing digital, diseño gráfico y desarrollo web (front-end) UX/UI.
-      </p>
-      <div class="hero-ctas">
-        <a href="proyectos.html" class="btn-primary">Ver proyectos →</a>
-        <a href="contacto.html" class="btn-outline">Contacto</a>
+  <section class="hero-v2">
+    <div class="hero-v2-left">
+      <div class="hero-v2-name">
+        <span class="hv-line">María</span>
+        <span class="hv-line">García</span>
+        <span class="hv-line hv-accent">Ramos</span>
       </div>
+
+      <p class="hero-v2-desc">Diseñadora &amp; desarrolladora. Marketing digital, diseño gráfico y desarrollo web front-end UX/UI.</p>
+
+      <div class="hero-v2-contact-row">
+        <a href="https://www.linkedin.com/in/mariagarram" target="_blank" rel="noopener" class="hero-v2-social"><span>in</span> LinkedIn</a>
+        <a href="mailto:mariagarciaramos46@gmail.com" class="hero-v2-social"><span>@</span> Email</a>
+      </div>
+
+      <a href="contacto.html" class="hero-v2-cta">
+        Hablemos
+        <span class="hero-v2-cta-icon">→</span>
+      </a>
     </div>
 
-    <div class="hero-image-wrap">
-      <div class="hero-img-bg"></div>
-      <img
-        src="img/1632253827024.jpg"
-        alt="María García Ramos"
-        class="hero-img"
-        onerror="this.style.display='none';document.getElementById('ph').style.display='flex';"
-      >
-      <div class="hero-img-placeholder" id="ph" style="display:none;">Foto de María</div>
-      <div class="hero-badge">
-        <div class="hero-badge-num">4+</div>
-        <div class="hero-badge-label">Años apr.</div>
+    <div class="hero-v2-photo-wrap">
+      <div class="hero-v2-photo-frame">
+        <img src="img/maria-hero.jpg" alt="María García Ramos" class="hero-v2-photo">
+      </div>
+      <div class="hero-v2-badge">
+        <span class="hero-v2-badge-num">+2</span>
+        <span class="hero-v2-badge-label">Exp.</span>
       </div>
     </div>
   </section>
 
   <div class="skills-strip">
-    <div class="skills-inner">
-      <span class="skill-tag">Marketing Digital</span>
-      <span class="skill-sep"></span>
-      <span class="skill-tag">Diseño Gráfico</span>
-      <span class="skill-sep"></span>
-      <span class="skill-tag">Desarrollo Web</span>
-      <span class="skill-sep"></span>
-      <span class="skill-tag">Front-End</span>
-      <span class="skill-sep"></span>
-      <span class="skill-tag">UX / UI</span>
-      <span class="skill-sep"></span>
-      <span class="skill-tag">Branding</span>
+    <div class="skills-marquee">
+      <div class="skills-track">
+        <span class="skill-tag">Marketing Digital</span>
+        <span class="skill-tag">Diseño Gráfico</span>
+        <span class="skill-tag">Desarrollo Web</span>
+        <span class="skill-tag">Front-End</span>
+        <span class="skill-tag">UX / UI</span>
+        <span class="skill-tag">Branding</span>
+      </div>
+      <div class="skills-track" aria-hidden="true">
+        <span class="skill-tag">Marketing Digital</span>
+        <span class="skill-tag">Diseño Gráfico</span>
+        <span class="skill-tag">Desarrollo Web</span>
+        <span class="skill-tag">Front-End</span>
+        <span class="skill-tag">UX / UI</span>
+        <span class="skill-tag">Branding</span>
+      </div>
     </div>
+  </div>
+
+  <div class="page" style="padding-top:6rem;">
+    <section class="bento-section">
+      <header class="page-header">
+        <h2 class="page-title">Proyectos recientes</h2>
+      </header>
+
+      <div class="bento-grid">
+        <a href="tfm.html" class="bento-card solid logo-bg">
+          <img src="img/besoccer-logo.png" alt="Logo BeSoccer">
+          <div class="bento-card-body">
+            <div>
+              <span class="bento-card-cat">Marketing / Branding</span>
+              <div class="bento-card-name">TFM — Plan de Marketing<br>&amp; Identidad Corporativa</div>
+            </div>
+            <span class="bento-card-arrow">↗</span>
+          </div>
+        </a>
+
+        <a href="logos.html" class="bento-card">
+          <img src="img/Captura de pantalla 2026-06-10 154436.png" alt="Logotipo ACD Gamarra">
+          <div class="bento-card-body">
+            <div>
+              <span class="bento-card-cat">Diseño / Branding</span>
+              <div class="bento-card-name">Logotipo escuela deportiva</div>
+            </div>
+            <span class="bento-card-arrow">↗</span>
+          </div>
+        </a>
+
+        <a href="boda.html" class="bento-card wide">
+          <img src="img/Captura de pantalla 2026-06-10 154943.png" alt="Invitaciones de boda">
+          <div class="bento-card-body">
+            <div>
+              <span class="bento-card-cat">Diseño / Print</span>
+              <div class="bento-card-name">Invitaciones de boda</div>
+            </div>
+            <span class="bento-card-arrow">↗</span>
+          </div>
+        </a>
+      </div>
+
+      <div style="margin-top:2rem;">
+        <a href="proyectos.html" class="btn-outline">Ver todos los proyectos →</a>
+      </div>
+    </section>
+
+    <section class="bento-section">
+      <div class="quote-block">
+        <div class="quote-mark">"</div>
+        <p class="quote-text">Combino el pensamiento visual con la lógica técnica para construir proyectos que funcionan y que enamoran. Cada píxel tiene un porqué.</p>
+        <div class="quote-author">
+          <span class="quote-author-name">María García Ramos</span>
+          <span class="quote-author-dot"></span>
+          <span class="quote-author-role">Diseñadora &amp; Desarrolladora</span>
+        </div>
+      </div>
+    </section>
   </div>
 </main>
 

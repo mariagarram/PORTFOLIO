@@ -73,6 +73,8 @@
   gap: 1px;
   background: var(--border);
   border: 0.5px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
   margin-bottom: 6rem;
 }
 
@@ -148,16 +150,16 @@
 }
 
 .logo-dl {
-  width: 32px; height: 32px;
-  border: 0.5px solid var(--border);
+  width: 36px; height: 36px;
+  border: 0.5px solid var(--border-orange);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--muted);
+  color: var(--orange);
   text-decoration: none;
   transition: border-color 0.2s, color 0.2s, background 0.2s;
   flex-shrink: 0;
-  border-radius: 2px;
+  border-radius: 50%;
 }
 .logo-dl:hover { border-color: var(--orange); color: var(--orange); background: var(--orange-dim); }
 .logo-dl svg {
@@ -189,6 +191,8 @@
   gap: 1px;
   background: var(--border);
   border: 0.5px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
   margin-top: 2rem;
 }
 
@@ -255,7 +259,6 @@
   <div class="page">
 
     <header class="page-header">
-      <p class="page-eyebrow">Proyecto 02 — Branding</p>
       <h1 class="page-title">Logotipo<br>escuela deportiva</h1>
     </header>
 
@@ -271,8 +274,8 @@
       <div class="project-meta">
         <div class="meta-row"><span class="meta-key">Cliente</span><span class="meta-val">ACD Gamarra</span></div>
         <div class="meta-row"><span class="meta-key">Año</span><span class="meta-val">2025</span></div>
-        <div class="meta-row"><span class="meta-key">Disciplina</span><span class="meta-val">Branding · Diseño Gráfico</span></div>
-        <div class="meta-row"><span class="meta-key">Herramientas</span><span class="meta-val">Illustrator · Photoshop</span></div>
+        <div class="meta-row"><span class="meta-key">Disciplina</span><span class="meta-val">Branding / Diseño Gráfico</span></div>
+        <div class="meta-row"><span class="meta-key">Herramientas</span><span class="meta-val">Illustrator / Photoshop</span></div>
       </div>
     </div>
 
@@ -358,9 +361,18 @@
     </div>
 
 
-    <div style="padding-top:1rem; border-top: 0.5px solid var(--border);">
+    <div style="padding-top:1rem; padding-bottom: 4rem; border-top: 0.5px solid var(--border);">
       <a href="proyectos.html" class="btn-outline">← Volver a proyectos</a>
     </div>
+
+    <!-- NEXT PROJECT -->
+    <a href="boda.html" class="next-project">
+      <div>
+        <div class="next-project-label">Siguiente proyecto</div>
+        <div class="next-project-name">Invitaciones de boda</div>
+      </div>
+      <span class="next-project-arrow">↗</span>
+    </a>
 
   </div>
 </main>

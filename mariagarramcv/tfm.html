@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TFM — Plan de Marketing WeBall · María García Ramos</title>
+<title>TFM — Plan de Marketing WeBall / María García Ramos</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
@@ -77,7 +77,7 @@
   position: relative;
   margin-bottom: 5rem;
   border: 0.5px solid var(--border);
-  border-radius: 4px;
+  border-radius: 20px;
   overflow: hidden;
 }
 
@@ -96,7 +96,7 @@
   background: rgba(13,13,13,0.9);
   border: 0.5px solid var(--border-orange);
   padding: 1rem 1.4rem;
-  border-radius: 2px;
+  border-radius: 14px;
   backdrop-filter: blur(8px);
 }
 .tfm-hero-badge-num {
@@ -118,18 +118,18 @@
 .stats-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: var(--border);
-  border: 0.5px solid var(--border);
+  gap: 1.25rem;
   margin-bottom: 5rem;
 }
 
 .stat-cell {
-  background: var(--bg);
+  background: var(--bg2);
+  border: 0.5px solid var(--border);
+  border-radius: 16px;
   padding: 1.75rem 1.5rem;
-  transition: background 0.2s;
+  transition: border-color 0.2s, transform 0.2s;
 }
-.stat-cell:hover { background: var(--bg2); }
+.stat-cell:hover { border-color: var(--border-orange); transform: translateY(-3px); }
 
 .stat-num {
   font-size: 2.2rem;
@@ -205,6 +205,8 @@
   gap: 1px;
   background: var(--border);
   border: 0.5px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
 }
 
 .strat-header {
@@ -356,7 +358,6 @@
   <div class="page">
 
     <header class="page-header">
-      <p class="page-eyebrow">Proyecto 01 — TFM</p>
       <h1 class="page-title">Plan de Marketing Digital<br>&amp; Identidad Corporativa</h1>
     </header>
 
@@ -372,11 +373,11 @@
         
       </div>
       <div class="project-meta">
-        <div class="meta-row"><span class="meta-key">Cliente</span><span class="meta-val">WeBall · App deportiva</span></div>
+        <div class="meta-row"><span class="meta-key">Cliente</span><span class="meta-val">WeBall / App deportiva</span></div>
         <div class="meta-row"><span class="meta-key">Centro</span><span class="meta-val">MasterD</span></div>
         <div class="meta-row"><span class="meta-key">Año</span><span class="meta-val">2022 – 2023</span></div>
-        <div class="meta-row"><span class="meta-key">Disciplina</span><span class="meta-val">Marketing Digital · Branding</span></div>
-        <div class="meta-row"><span class="meta-key">Herramientas</span><span class="meta-val">Google Ads · Meta Ads · Analytics</span></div>
+        <div class="meta-row"><span class="meta-key">Disciplina</span><span class="meta-val">Marketing Digital / Branding</span></div>
+        <div class="meta-row"><span class="meta-key">Herramientas</span><span class="meta-val">Google Ads / Meta Ads / Analytics</span></div>
         <div class="meta-row"><span class="meta-key">Páginas</span><span class="meta-val">44 páginas</span></div>
       </div>
     </div>
@@ -424,25 +425,34 @@
         <div class="strat-cell">Vallas publicitarias en 5 ciudades + podcast de radio 20:00–23:00</div>
 
         <div class="strat-cell accent">Mayor interacción en redes sociales</div>
-        <div class="strat-cell">Marketing relacional · posts interactivos · sorteos</div>
+        <div class="strat-cell">Marketing relacional / posts interactivos / sorteos</div>
 
         <div class="strat-cell accent">Visibilidad fútbol femenino y sala</div>
-        <div class="strat-cell">Rediseño de distribución en app y web · nuevas keywords</div>
+        <div class="strat-cell">Rediseño de distribución en app y web / nuevas keywords</div>
 
         <div class="strat-cell accent">Aumentar tráfico web y blog</div>
-        <div class="strat-cell">SEO en Google Ads · WordPress · enlaces internos · contenido original</div>
+        <div class="strat-cell">SEO en Google Ads / WordPress / enlaces internos / contenido original</div>
 
         <div class="strat-cell accent">Crecimiento en redes sociales</div>
-        <div class="strat-cell">Facebook Ads + Instagram Insights · calendario editorial diario</div>
+        <div class="strat-cell">Facebook Ads + Instagram Insights / calendario editorial diario</div>
       </div>
     </div>
 
 
     <!-- BACK -->
-    <div style="padding-top:1rem; border-top: 0.5px solid var(--border); display:flex; gap:1rem; flex-wrap:wrap;">
+    <div style="padding-top:1rem; padding-bottom: 4rem; border-top: 0.5px solid var(--border); display:flex; gap:1rem; flex-wrap:wrap;">
       <a href="proyectos.html" class="btn-outline">← Volver a proyectos</a>
       <a href="María_García_Ramos.pdf" download class="btn-primary">Descargar TFM completo</a>
     </div>
+
+    <!-- NEXT PROJECT -->
+    <a href="logos.html" class="next-project">
+      <div>
+        <div class="next-project-label">Siguiente proyecto</div>
+        <div class="next-project-name">Logotipo escuela deportiva</div>
+      </div>
+      <span class="next-project-arrow">↗</span>
+    </a>
 
   </div>
 </main>

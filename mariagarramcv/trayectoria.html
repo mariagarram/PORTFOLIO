@@ -32,27 +32,23 @@
   background: var(--orange);
 }
 
-/* Timeline */
+/* Timeline — bento cards */
 .timeline {
-  position: relative;
-  padding-left: 1.75rem;
-  border-left: 0.5px solid var(--border);
   display: flex;
   flex-direction: column;
-  gap: 2.75rem;
+  gap: 1.25rem;
 }
 
-.tl-item { position: relative; }
-
-.tl-dot {
-  position: absolute;
-  left: -2.2rem;
-  top: 0.35rem;
-  width: 9px; height: 9px;
-  border-radius: 50%;
-  background: var(--orange);
-  box-shadow: 0 0 0 3px var(--bg), 0 0 0 4px rgba(242,101,34,0.4);
+.tl-item {
+  position: relative;
+  border-radius: 16px;
+  border: 0.5px solid var(--border);
+  background: var(--bg2);
+  padding: 1.5rem 1.75rem;
+  transition: border-color 0.25s, transform 0.25s;
 }
+
+.tl-item:hover { border-color: var(--border-orange); transform: translateY(-3px); }
 
 .tl-year {
   font-size: 0.65rem;
@@ -61,6 +57,17 @@
   margin-bottom: 0.5rem;
   font-weight: 600;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tl-year::before {
+  content: '';
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--orange);
+  flex-shrink: 0;
 }
 
 .tl-role {
@@ -98,9 +105,9 @@
   text-transform: uppercase;
   color: var(--orange);
   border: 0.5px solid var(--border-orange);
-  padding: 0.25rem 0.65rem;
+  padding: 0.3rem 0.75rem;
   background: var(--orange-dim);
-  border-radius: 2px;
+  border-radius: 999px;
   font-weight: 500;
 }
 
@@ -142,7 +149,6 @@
 <main>
   <div class="page">
     <header class="page-header">
-      <p class="page-eyebrow">02 — Trayectoria</p>
       <h1 class="page-title">Experiencia &amp;<br>Formación</h1>
     </header>
 
@@ -151,7 +157,6 @@
         <p class="tray-col-label">Experiencia profesional</p>
         <div class="timeline">
           <div class="tl-item">
-            <div class="tl-dot"></div>
             <div class="tl-year">2025 - Actualidad</div>
             <div class="tl-role">Marketing digital, Diseño gráfico &amp; Desarrolladora Front-End</div>
             <div class="tl-company">Freelance</div>
@@ -159,7 +164,6 @@
             <div class="tl-tags"><span class="tl-tag">Adobe</span><span class="tl-tag">Figma</span><span class="tl-tag">React</span><span class="tl-tag">Node.js</span><span class="tl-tag">Vite</span><span class="tl-tag">HTML</span><span class="tl-tag">CSS</span><span class="tl-tag">TAILWIND</span><span class="tl-tag">JAVASCRIPT</span></div>
           </div>
             <div class="tl-item">
-            <div class="tl-dot"></div>
             <div class="tl-year">2025-Actualidad</div>
             <div class="tl-role">Secretaria</div>
             <div class="tl-company">Maldonado Gonzalez Abogados</div>
@@ -168,7 +172,6 @@
           </div>
             </div>
             <div class="tl-item">
-            <div class="tl-dot"></div>
             <div class="tl-year">2024-2025</div>
             <div class="tl-role">Administrativa</div>
             <div class="tl-company">Autos Dominguez</div>
@@ -176,7 +179,6 @@
             <div class="tl-tags"><span class="tl-tag">Factusol</span><span class="tl-tag">Holded</span><span class="tl-tag">Excel</span></div>
           </div>
           <div class="tl-item">
-            <div class="tl-dot"></div>
             <div class="tl-year">2023</div>
             <div class="tl-role">Digital Marketing Specialist &amp; Fashion Catalogue Designer</div>
             <div class="tl-company">Harper&Neyer</div>
@@ -184,14 +186,12 @@
             <div class="tl-tags"><span class="tl-tag">Illustrator</span><span class="tl-tag">Photoshop</span><span class="tl-tag">Metricool</span></div>
           </div>
           <div class="tl-item">
-            <div class="tl-dot"></div>
             <div class="tl-year">2022</div>
             <div class="tl-role">Dependienta</div>
             <div class="tl-company">Kiwoko</div>
             <p class="tl-desc">Atención al cliente, gestión de stock y organización de tienda.
           </div>
           <div class="tl-item">
-            <div class="tl-dot"></div>
             <div class="tl-year">2022</div>
             <div class="tl-role">Internal Coms Support</div>
             <div class="tl-company">Grupo Iskaypet</div>
@@ -205,7 +205,6 @@
         <p class="tray-col-label">Formación académica</p>
         <div class="timeline">
           <div class="tl-item">
-            <div class="tl-dot"></div>
             <div class="tl-year">2025-2026</div>
             <div class="tl-role">Máster Desarrollo Web UX/UI</div>
             <div class="tl-company">La Gauss</div>
@@ -213,7 +212,6 @@
             <div class="tl-tags"><span class="tl-tag">FIGMA</span><span class="tl-tag">REACT</span><span class="tl-tag">HTML</span><span class="tl-tag">CSS</span><span class="tl-tag">JavaScript</span><span class="tl-tag">Tailwind</span></div>
           </div>
           <div class="tl-item">
-            <div class="tl-dot"></div>
             <div class="tl-year">2022-2023</div>
             <div class="tl-role">Máster en Diseño Gráfico y Marketing Digital</div>
             <div class="tl-company">MasterD</div>
@@ -221,7 +219,6 @@
             <div class="tl-tags"><span class="tl-tag">PHOTOSHOP</span><span class="tl-tag">ILLUSTRATOR</span><span class="tl-tag">INDESIGN</span></div>
           </div>
           <div class="tl-item">
-            <div class="tl-dot"></div>
             <div class="tl-year">2020-2022</div>
             <div class="tl-role">Marketing y Publicidad</div>
             <div class="tl-company">Medac Nova</div>
