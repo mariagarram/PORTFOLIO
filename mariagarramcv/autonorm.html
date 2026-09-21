@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutoNorm — Prototipo Web / María García Ramos</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+
+/* ── PROJECT INTRO ── */
+.project-intro {
+  max-width: 720px;
+  margin-bottom: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.project-desc-text {
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.85;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 600;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.section-label::before {
+  content: '';
+  width: 24px; height: 1.5px;
+  background: var(--orange);
+  flex-shrink: 0;
+}
+
+/* ── FIGMA PROTOTYPE EMBED ── */
+.proto-embed {
+  position: relative;
+  margin-bottom: 3rem;
+  border: 0.5px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--bg3);
+}
+.proto-embed iframe {
+  display: block;
+  width: 100%;
+  height: 680px;
+  border: 0;
+}
+.proto-note {
+  font-size: 0.72rem;
+  color: var(--muted);
+  font-weight: 300;
+  margin-bottom: 4rem;
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 768px) {
+  .proto-embed iframe { height: 520px; }
+}
+@media (max-width: 480px) {
+  .proto-embed iframe { height: 420px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Portfolio</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="sobre-mi.html">Sobre mí</a></li>
+      <li><a href="trayectoria.html">Trayectoria</a></li>
+      <li><a href="proyectos.html" class="active">Proyectos</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <button class="nav-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-mobile" id="navMobile">
+  <a href="index.html">Home</a>
+  <a href="sobre-mi.html">Sobre mí</a>
+  <a href="trayectoria.html">Trayectoria</a>
+  <a href="proyectos.html" class="active">Proyectos</a>
+  <a href="contacto.html">Contacto</a>
+</div>
+
+<main>
+  <div class="page">
+
+    <header class="page-header">
+      <h1 class="page-title">AutoNorm — Prototipo Web</h1>
+    </header>
+
+    <!-- INTRO -->
+    <div class="project-intro">
+      <p class="project-desc-text">
+        AutoNorm es una web pensada para ayudar a personas que quieren comprarse un coche, de ocasión o nuevo, a resolver las dudas que más frenan esa decisión: costes a largo plazo, posibles fallos frecuentes, etiquetas medioambientales y todo lo que no siempre queda claro antes de comprar.
+      </p>
+    </div>
+
+    <!-- PROTOTIPO -->
+    <p class="section-label">Prototipo interactivo</p>
+    <div class="proto-embed">
+      <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FAtEGTFuE5A0r5f5iXKhNTO%2FAutoNorm-%25E2%2580%2594-Prototipo-Web%3Fnode-id%3D100-76%26t%3DStFf2Nd3gkNbLlih-1"
+        allowfullscreen loading="lazy"></iframe>
+    </div>
+    <p class="proto-note">Navega por el prototipo directamente aquí arriba — es de solo lectura.</p>
+
+    <!-- BACK -->
+    <div style="padding-top:1rem; padding-bottom: 4rem; border-top: 0.5px solid var(--border); display:flex; gap:1rem; flex-wrap:wrap;">
+      <a href="proyectos.html" class="btn-outline">← Volver a proyectos</a>
+    </div>
+
+    <!-- NEXT PROJECT -->
+    <a href="logos.html" class="next-project">
+      <div>
+        <div class="next-project-label">Siguiente proyecto</div>
+        <div class="next-project-name">Logotipo escuela deportiva</div>
+      </div>
+      <span class="next-project-arrow">↗</span>
+    </a>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p class="footer-copy">© 2026 María García Ramos</p>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+</body>
+</html>

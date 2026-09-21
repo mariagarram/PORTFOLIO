@@ -314,6 +314,22 @@ footer {
   opacity: 1;
 }
 
+/* AutoNorm card: centered logo lockup instead of a cover photo */
+.autonorm-card {
+  background: linear-gradient(155deg, var(--bg3) 0%, #241407 100%);
+}
+.autonorm-card .bento-card-logo {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: 38px;
+  object-fit: contain;
+  opacity: 1;
+}
+.autonorm-card:hover .bento-card-logo { transform: translate(-50%, -50%); }
+
 .bento-card.no-link {
   cursor: default;
   opacity: 0.75;
