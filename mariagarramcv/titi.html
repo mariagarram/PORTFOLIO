@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tití Studio — E&#8209;commerce de moda / María García Ramos</title>
+<meta name="description" content="Tití Studio: diseño en Figma y desarrollo en HTML, CSS y JavaScript de un e-commerce de camisetas dibujadas a mano.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+
+/* ── PROJECT INTRO ── */
+.project-intro {
+  max-width: 720px;
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.project-desc-text {
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.85;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.btn-solid {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--orange);
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 0.9rem 1.6rem;
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+.btn-solid:hover { background: var(--orange2); }
+
+/* ── DATOS DEL PROYECTO ── */
+.project-facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 4rem;
+}
+.fact {
+  border: 0.5px solid var(--border);
+  border-radius: 16px;
+  padding: 1.25rem 1.4rem;
+  background: var(--bg2);
+}
+.fact-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--orange2);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.fact-value {
+  font-size: 0.85rem;
+  color: var(--off);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 600;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.section-label::before {
+  content: '';
+  width: 24px; height: 1.5px;
+  background: var(--orange);
+  flex-shrink: 0;
+}
+
+/* ── LO QUE INCLUYE ── */
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem 2.5rem;
+  margin: 0 0 4rem;
+  padding: 0;
+  list-style: none;
+  max-width: 900px;
+}
+.feature-list li {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.7;
+  font-weight: 300;
+  padding-left: 1.2rem;
+  position: relative;
+}
+.feature-list li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0.65em;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--orange);
+}
+.feature-list strong { color: var(--off); font-weight: 600; }
+
+/* ── EMBEDS ── */
+.proto-embed {
+  position: relative;
+  margin-bottom: 1rem;
+  border: 0.5px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--bg3);
+}
+.proto-embed iframe {
+  display: block;
+  width: 100%;
+  height: 680px;
+  border: 0;
+  background: #f6f3ec;
+}
+.browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1rem;
+  border-bottom: 0.5px solid var(--border);
+  background: var(--bg2);
+}
+.browser-bar span {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--faint);
+}
+.browser-bar a {
+  margin-left: 0.75rem;
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.browser-bar a:hover { color: var(--white); }
+.proto-note {
+  font-size: 0.72rem;
+  color: var(--muted);
+  font-weight: 300;
+  margin-bottom: 4rem;
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 900px) {
+  .project-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 768px) {
+  .proto-embed iframe { height: 560px; }
+  .feature-list { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .project-facts { grid-template-columns: 1fr; }
+  .proto-embed iframe { height: 520px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Portfolio</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="sobre-mi.html">Sobre mí</a></li>
+      <li><a href="trayectoria.html">Trayectoria</a></li>
+      <li><a href="proyectos.html" class="active">Proyectos</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <button class="nav-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-mobile" id="navMobile">
+  <a href="index.html">Home</a>
+  <a href="sobre-mi.html">Sobre mí</a>
+  <a href="trayectoria.html">Trayectoria</a>
+  <a href="proyectos.html" class="active">Proyectos</a>
+  <a href="contacto.html">Contacto</a>
+</div>
+
+<main>
+  <div class="page">
+
+    <header class="page-header">
+      <h1 class="page-title">Tití Studio — E&#8209;commerce de moda</h1>
+    </header>
+
+    <!-- INTRO -->
+    <div class="project-intro">
+      <p class="project-desc-text">
+        Tití es una marca ficticia de camisetas dibujadas a mano e impresas en Málaga. Diseñé la identidad, la tienda completa en Figma (escritorio, tablet y móvil) y después la desarrollé en HTML, CSS y JavaScript, sin frameworks, para que funcione como una tienda real.
+      </p>
+      <p class="project-desc-text">
+        El reto era una web de moda que invitara a comprar sin parecer una plantilla: fotografía con protagonismo, tipografía juvenil, botones con personalidad y un recorrido de compra claro, desde la portada hasta la confirmación del pedido.
+      </p>
+      <div class="project-links">
+        <a href="https://titi-web.vercel.app/" target="_blank" rel="noopener" class="btn-solid">Ver la web en vivo ↗</a>
+        <a href="https://www.figma.com/design/KBzbvPh4AiMW6MeWMuYwdF/" target="_blank" rel="noopener" class="btn-outline">Ver el diseño en Figma ↗</a>
+      </div>
+    </div>
+
+    <!-- DATOS -->
+    <div class="project-facts">
+      <div class="fact"><div class="fact-label">Rol</div><div class="fact-value">Diseño UX/UI, branding y desarrollo front-end</div></div>
+      <div class="fact"><div class="fact-label">Herramientas</div><div class="fact-value">Figma, HTML, CSS, JavaScript, Git, Vercel</div></div>
+      <div class="fact"><div class="fact-label">Pantallas</div><div class="fact-value">14 páginas en escritorio, tablet y móvil</div></div>
+      <div class="fact"><div class="fact-label">Idiomas</div><div class="fact-value">Español e inglés en toda la tienda</div></div>
+    </div>
+
+    <!-- LO QUE INCLUYE -->
+    <p class="section-label">Lo que incluye</p>
+    <ul class="feature-list">
+      <li><strong>Sistema de diseño en Figma:</strong> variables de color y espaciado, estilos de texto y componentes con variantes y estados.</li>
+      <li><strong>Prototipo navegable</strong> con estados de hover y pulsado, cesta y menú superpuestos, y cambio de idioma.</li>
+      <li><strong>Tienda con filtros</strong> por categoría y talla, orden por precio y añadir rápido desde la tarjeta.</li>
+      <li><strong>Ficha de producto</strong> con galería deslizable, color, talla obligatoria y "Completa el look".</li>
+      <li><strong>Cesta lateral</strong> con cantidades, deshacer, barra de envío gratis y producto sugerido.</li>
+      <li><strong>Pago con validación</strong> de formulario, tipos de envío, código de descuento y confirmación del pedido.</li>
+      <li><strong>Búsqueda en vivo</strong>, favoritos guardados en el navegador y páginas de ayuda e historia.</li>
+      <li><strong>Accesibilidad:</strong> uso con teclado, foco visible y respeto a quien prefiere menos animaciones.</li>
+    </ul>
+
+    <!-- WEB EN VIVO -->
+    <p class="section-label">La web en vivo</p>
+    <div class="proto-embed">
+      <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span><a href="https://titi-web.vercel.app/" target="_blank" rel="noopener" tabindex="-1">titi-web.vercel.app</a></div>
+      <iframe src="https://titi-web.vercel.app/" title="Tití Studio, web en vivo" loading="lazy"></iframe>
+    </div>
+    <p class="proto-note">Puedes usarla aquí mismo: añade algo a la cesta, prueba el código HOLA10 o cambia a inglés. Es una demo y no se cobra nada.</p>
+
+    <!-- PROTOTIPO -->
+    <p class="section-label">Prototipo en Figma</p>
+    <div class="proto-embed">
+      <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FKBzbvPh4AiMW6MeWMuYwdF%2FTiti-Studio%3Fnode-id%3D20-53%26starting-point-node-id%3D20%253A53%26scaling%3Dscale-down-width"
+        title="Prototipo de Tití Studio en Figma" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <p class="proto-note">Navega por el prototipo de escritorio directamente aquí arriba. Es de solo lectura.</p>
+
+    <!-- BACK -->
+    <div style="padding-top:1rem; padding-bottom: 4rem; border-top: 0.5px solid var(--border); display:flex; gap:1rem; flex-wrap:wrap;">
+      <a href="proyectos.html" class="btn-outline">← Volver a proyectos</a>
+    </div>
+
+    <!-- NEXT PROJECT -->
+    <a href="autonorm.html" class="next-project">
+      <div>
+        <div class="next-project-label">Siguiente proyecto</div>
+        <div class="next-project-name">AutoNorm — Prototipo Web</div>
+      </div>
+      <span class="next-project-arrow">↗</span>
+    </a>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p class="footer-copy">© 2026 María García Ramos</p>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+</body>
+</html>
