@@ -41,21 +41,30 @@
     <p class="legal-date">Última actualización: octubre de 2026</p>
     <div class="legal-body">
       <h2>Resumen</h2>
-      <p>Esta web no usa cookies propias ni herramientas de analítica o publicidad. Las fuentes tipográficas se sirven desde la propia web, sin conectar con Google.</p>
-
-      <h2>Contenido de terceros: prototipos de Figma</h2>
-      <p>Algunas páginas de proyectos incluyen prototipos alojados en Figma. Figma usa sus propias cookies, por eso estos prototipos no se cargan hasta que pulsas el botón "Cargar prototipo". Si no lo pulsas, tu navegador no se conecta con Figma.</p>
-      <p>Puedes consultar cómo usa Figma las cookies en su <a href="https://www.figma.com/legal/privacy/" target="_blank" rel="noopener">política de privacidad</a>.</p>
-
-      <h2>Tu elección guardada</h2>
-      <p>Si al cargar un prototipo marcas "Recordar mi elección", se guarda en tu navegador una preferencia llamada <code>garram-consentimiento-figma</code>. No contiene datos personales y solo sirve para no volver a preguntarte.</p>
+      <p>Al entrar por primera vez verás un aviso para aceptar o rechazar las estadísticas y el contenido externo. Si rechazas, la web funciona igual. Puedes cambiar tu elección cuando quieras.</p>
       <div class="consent-box">
         <p id="estadoConsentimiento">Comprobando tu elección…</p>
-        <button type="button" class="key" id="retirarConsentimiento" hidden><kbd>×</kbd>Retirar mi consentimiento</button>
+        <a href="cookies.html" class="key" data-cookies><kbd>⚙</kbd>Configurar cookies</a>
       </div>
 
+      <h2>Qué se usa en esta web</h2>
+      <div class="legal-table">
+        <table>
+          <thead><tr><th>Nombre</th><th>Tipo</th><th>Para qué</th><th>Cuánto dura</th></tr></thead>
+          <tbody>
+            <tr><td><code>garram-cookies</code></td><td>Necesaria, propia</td><td>Guarda en tu navegador lo que has elegido en el aviso. No contiene datos personales.</td><td>Hasta que la borres</td></tr>
+            <tr><td>Cloudflare Web Analytics</td><td>Estadísticas, de terceros</td><td>Cuenta visitas de forma anónima: qué página se ve, desde qué web llegas, país, navegador y dispositivo. No usa cookies ni identifica a nadie. Solo se carga si lo aceptas.</td><td>No guarda nada en tu navegador</td></tr>
+            <tr><td>Figma</td><td>Contenido externo, de terceros</td><td>Muestra los prototipos de algunos proyectos. Figma usa sus propias cookies. Solo se carga si lo aceptas o si pulsas "Cargar prototipo".</td><td>Según la política de Figma</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Más información en la <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">política de privacidad de Cloudflare</a> y en la <a href="https://www.figma.com/legal/privacy/" target="_blank" rel="noopener">de Figma</a>.</p>
+
+      <h2>Fuentes tipográficas</h2>
+      <p>Las fuentes se sirven desde la propia web, así que no se conecta con Google ni con otros servicios para mostrarlas.</p>
+
       <h2>Demo de Tití Studio</h2>
-      <p>La página del proyecto Tití Studio muestra la web de la tienda funcionando. Esa demo puede guardar en tu navegador la cesta de prueba para que funcione mientras la usas. No se usa para seguimiento y no se cobra nada.</p>
+      <p>La página del proyecto Tití Studio muestra la web de la tienda funcionando. Esa demo puede guardar en tu navegador la cesta de prueba mientras la usas. No se usa para seguimiento y no se cobra nada.</p>
 
       <h2>Cómo borrar cookies y datos guardados</h2>
       <p>Puedes borrar en cualquier momento las cookies y los datos de sitios desde la configuración de tu navegador (Chrome, Safari, Firefox o Edge), en el apartado de privacidad.</p>
@@ -92,12 +101,13 @@
         <li><a href="aviso-legal.html">Aviso legal</a></li>
         <li><a href="privacidad.html">Política de privacidad</a></li>
         <li><a href="cookies.html">Política de cookies</a></li>
+        <li><a href="cookies.html" data-cookies>Configurar cookies</a></li>
       </ul>
     </div>
   </div>
   <div class="wrap footer-bottom">
     <p>© 2026 garram.studio</p>
-    <p>Sin cookies de seguimiento ni analítica</p>
+    <p>Diseñada y programada por María</p>
   </div>
 </footer>
 
