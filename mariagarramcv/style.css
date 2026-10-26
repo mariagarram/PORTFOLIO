@@ -706,3 +706,41 @@ footer {
 }
 
 
+
+/* ══════════════════════════════════════════
+   PIEZAS COMUNES garram.studio
+   (ventanas, teclas y bloque de contacto)
+═══════════════════════════════════════════ */
+:root { --mono: 'IBM Plex Mono', ui-monospace, monospace; --ink: #0b0b0f; --gut: max(16px, 2rem); }
+.wrap { max-width: 1280px; margin: 0 auto; padding-left: var(--gut); padding-right: var(--gut); }
+.mono-label { font-family: var(--mono); font-size: 0.8rem; color: var(--green); display: block; margin-bottom: 0.6rem; }
+
+.win { background: var(--bg2); border: 0.5px solid rgba(245,245,247,0.14); border-radius: 14px; overflow: hidden; box-shadow: 0 24px 50px -24px rgba(0,0,0,0.8); }
+.win-bar { display: flex; align-items: center; gap: 0.7rem; padding: 0.6rem 0.85rem; background: var(--bg3); border-bottom: 0.5px solid var(--border); }
+.dots { display: flex; gap: 6px; flex-shrink: 0; }
+.dots b { width: 11px; height: 11px; border-radius: 50%; }
+.dots b:nth-child(1) { background: var(--pink); }
+.dots b:nth-child(2) { background: var(--green); }
+.dots b:nth-child(3) { background: var(--faint); }
+.fname { flex: 1; min-width: 0; font-family: var(--mono); font-size: 0.78rem; color: var(--off); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.key { display: inline-flex; align-items: center; gap: 0.75rem; padding: 0.5rem 1.05rem 0.5rem 0.5rem; border-radius: 12px; background: var(--bg3); color: var(--white); border: 1px solid rgba(245,245,247,0.18); border-bottom-width: 5px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: transform 0.08s, border-bottom-width 0.08s, box-shadow 0.2s; cursor: pointer; }
+.key[hidden] { display: none; }
+.key kbd { font-family: var(--mono); font-size: 0.9rem; font-weight: 500; min-width: 2.1rem; height: 2.1rem; padding: 0 0.4rem; display: grid; place-items: center; border-radius: 7px; background: var(--bg); color: var(--green); border: 1px solid rgba(245,245,247,0.14); }
+.key:hover { box-shadow: 0 0 0 2px var(--green); }
+.key:active, .key.press { transform: translateY(3px); border-bottom-width: 2px; }
+.key:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
+.key-pink { background: var(--pink); color: var(--ink); border-color: #b3126c; }
+.key-pink kbd { background: var(--ink); color: var(--pink); border-color: var(--ink); }
+.key-pink:hover { box-shadow: 0 0 0 2px var(--white); }
+
+.cta { background: var(--pink); color: var(--ink); padding-block: clamp(4rem, 9vw, 6.5rem); }
+.cta-grid { display: flex; justify-content: space-between; align-items: end; gap: 2rem; flex-wrap: wrap; }
+.cta h2 { font-family: var(--display); font-weight: 400; font-size: clamp(3rem, 9vw, 7.5rem); line-height: 0.92; }
+.cta-links { display: flex; flex-direction: column; gap: 0.75rem; min-width: 0; }
+.cta-mail { font-family: var(--mono); font-size: clamp(1rem, 2.2vw, 1.4rem); font-weight: 500; user-select: all; word-break: break-all; }
+.cta-links a { color: var(--ink); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+.cta-links .key-ink { background: var(--ink); color: var(--white); border-color: #000; text-decoration: none; align-self: flex-start; }
+.cta-links .key-ink kbd { background: #24242c; color: var(--pink); }
+.cta-links .key-ink:hover { box-shadow: 0 0 0 2px var(--ink); }
+@media (prefers-reduced-motion: reduce) { .key { transition: none; } }

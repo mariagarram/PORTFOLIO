@@ -4,224 +4,49 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sobre mí — garram.studio</title>
-<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<meta name="description" content="María, diseñadora y desarrolladora front-end autónoma en Málaga. Quién soy, qué hago y con qué herramientas trabajo.">
+<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="img/garram-simbolo.svg">
 <link rel="stylesheet" href="style.css">
 <style>
-.sobre-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6rem;
-  align-items: start;
-}
+/* Sobre mí — mismo lenguaje que la portada: tu foto, un readme.md,
+   las herramientas como archivo de código y las preguntas en una ventana. */
+.about { padding-top: calc(60px + clamp(2.5rem, 6vw, 5rem)); padding-bottom: clamp(4rem, 8vw, 6rem); }
+.about-title { font-family: var(--display); font-weight: 400; font-size: clamp(4rem, 13vw, 10rem); line-height: 0.85; margin-bottom: clamp(2rem, 4vw, 3.25rem); }
+.about-title .r1 { color: var(--pink); }
 
-.sobre-lead {
-  font-size: clamp(1.4rem, 2.5vw, 2rem);
-  font-weight: 800;
-  line-height: 1.2;
-  color: var(--white);
-  margin-bottom: 2rem;
-  letter-spacing: -0.02em;
-}
+.about-grid { display: grid; grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr); gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+.me { max-width: 360px; width: 100%; transform: rotate(-2deg); box-shadow: 8px 8px 0 var(--pink), 14px 14px 0 var(--green); }
+.me img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
 
-.sobre-lead em { font-style: normal; color: var(--orange); }
+.readme { padding: 1.6rem 1.8rem 1.9rem; display: flex; flex-direction: column; gap: 1.6rem; }
+.readme h2 { font-family: var(--mono); font-size: 0.95rem; font-weight: 500; color: var(--green); }
+.readme h2 span { color: var(--pink); }
+.readme p { margin-top: 0.5rem; color: var(--off); font-size: 1.08rem; line-height: 1.7; max-width: 58ch; }
+.readme strong { color: var(--white); }
 
-.sobre-text {
-  color: var(--muted);
-  font-size: 0.95rem;
-  line-height: 1.85;
-  margin-bottom: 1.25rem;
-  font-weight: 300;
-}
+.sec { padding-block: clamp(3.5rem, 7vw, 5.5rem); border-top: 0.5px solid var(--border); }
+.duo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(1.25rem, 2.5vw, 2rem); align-items: start; }
 
-/* Skills */
-.skills-col { display: flex; flex-direction: column; gap: 2rem; }
+.code { padding: 1.4rem 1.6rem; font-family: var(--mono); font-size: 0.92rem; line-height: 1.75; color: var(--off); overflow-x: auto; white-space: pre; }
+.code .p { color: var(--muted); }
+.code .k { color: var(--pink); }
+.code .s { color: var(--green); }
 
-.skills-heading {
-  font-size: 0.62rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--orange);
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
+.faq { padding: 0.5rem 0; }
+.faq details { border-bottom: 0.5px solid var(--border); }
+.faq details:last-child { border-bottom: none; }
+.faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.1rem 1.5rem; font-weight: 700; font-size: 1rem; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: '+'; font-family: var(--mono); font-size: 1.1rem; color: var(--green); flex-shrink: 0; transition: transform 0.2s; }
+.faq details[open] summary::after { transform: rotate(45deg); color: var(--pink); }
+.faq summary:hover { background: var(--bg3); }
+.faq summary:focus-visible { outline: 3px solid var(--green); outline-offset: -3px; }
+.faq details p { padding: 0 1.5rem 1.25rem; color: var(--muted); line-height: 1.7; max-width: 60ch; }
 
-.skills-heading::before {
-  content: '';
-  width: 24px; height: 1.5px;
-  background: var(--orange);
-}
-
-.skill-row { display: flex; flex-direction: column; gap: 0.55rem; }
-
-.skill-meta {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-  color: var(--off);
-  font-weight: 500;
-}
-
-.skill-meta span:last-child { color: white; font-weight: 600; }
-
-.skill-bar {
-  height: 2px;
-  background: var(--faint);
-  position: relative;
-  border-radius: 1px;
-}
-
-.skill-fill {
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  background: var(--orange);
-  border-radius: 1px;
-  width: 0;
-  transition: width 1s cubic-bezier(0.4,0,0.2,1);
-}
-
-/* Herramientas */
-.tools-section {
-  margin-top: 5rem;
-  padding-top: 4rem;
-  border-top: 0.5px solid var(--border);
-}
-
-.tools-heading {
-  font-size: 0.62rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--orange);
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.tools-heading::before {
-  content: '';
-  width: 24px; height: 1.5px;
-  background: var(--orange);
-}
-
-.tools-grid { display: flex; flex-wrap: wrap; gap: 0.6rem; }
-
-
-/* Titulación */
-.titulacion-section {
-  margin-top: 5rem;
-  padding-top: 4rem;
-  border-top: 0.5px solid var(--border);
-}
-
-.titulacion-heading {
-  font-size: 0.62rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--orange);
-  font-weight: 600;
-  margin-bottom: 2rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.titulacion-heading::before {
-  content: '';
-  width: 24px; height: 1.5px;
-  background: var(--orange);
-}
-
-.titulacion-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-}
-
-.titulo-card {
-  border: 0.5px solid var(--border);
-  border-radius: 4px;
-  padding: 1.75rem 2rem;
-  background: var(--bg2);
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  transition: border-color 0.2s;
-}
-
-.titulo-card:hover { border-color: var(--orange); }
-
-.titulo-badge {
-  display: inline-flex;
-  align-items: center;
-  font-size: 0.6rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: var(--orange);
-  background: rgba(255,62,165,0.08);
-  border: 0.5px solid rgba(255,62,165,0.3);
-  padding: 0.3rem 0.7rem;
-  border-radius: 2px;
-  width: fit-content;
-}
-
-.titulo-nombre {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--white);
-  line-height: 1.3;
-  letter-spacing: -0.01em;
-}
-
-.titulo-centro {
-  font-size: 0.8rem;
-  color: var(--off);
-  font-weight: 500;
-}
-
-.titulo-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  padding-top: 0.75rem;
-  border-top: 0.5px solid var(--border);
-  margin-top: 0.25rem;
-}
-
-.titulo-meta-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-}
-
-.titulo-meta-label {
-  font-size: 0.58rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
-  font-weight: 500;
-}
-
-.titulo-meta-value {
-  font-size: 0.78rem;
-  color: var(--off);
-  font-weight: 500;
-}
-
-/* ═══ RESPONSIVE ═══ */
-@media (max-width: 1024px) { .sobre-grid { gap: 3.5rem; } }
-@media (max-width: 768px) {
-  .sobre-grid { grid-template-columns: 1fr; gap: 3rem; }
-}
-@media (max-width: 480px) {
-  .stat-num { font-size: 2.2rem; }
-  .tools-section { margin-top: 3rem; padding-top: 2.5rem; }
-  .titulacion-grid { grid-template-columns: 1fr; }
+@media (max-width: 900px) {
+  .about-grid, .duo { grid-template-columns: 1fr; }
+  .me { max-width: 280px; }
 }
 </style>
 </head>
@@ -250,88 +75,86 @@
 </div>
 
 <main>
-  <div class="page">
-    <header class="page-header">
-      <h1 class="page-title">Sobre mí</h1>
-    </header>
+  <section class="about">
+    <div class="wrap">
+      <span class="mono-label">/sobre-mi</span>
+      <h1 class="about-title">sob<span class="r1">r</span>e mí</h1>
 
-    <div class="sobre-grid">
-      <div>
-        <p class="sobre-text">Soy María, diseñadora y desarrolladora front-end, y garram.studio es mi marca. Trabajo como autónoma y hago webs para negocios que empiezan o que todavía no tienen una: las diseño, las programo y ayudo con el contenido para que la gente llegue a ellas.</p>
-        <p class="sobre-text">Mi enfoque integra el marketing digital, el diseño gráfico y el desarrollo front-end en una sola visión coherente: cada píxel tiene un por qué.</p>
-        <p class="sobre-text">Me mueve la curiosidad y el detalle. Creo que los mejores proyectos nacen de escuchar bien, entender el contexto y atreverse a hacer algo distinto.</p>
-      </div>
+      <div class="about-grid">
+        <figure class="win me">
+          <div class="win-bar"><span class="dots"><b></b><b></b><b></b></span><span class="fname">maria.jpg</span></div>
+          <img src="img/maria-hero.jpg" alt="María, diseñadora y desarrolladora de garram.studio">
+        </figure>
 
-      <div class="skills-col">
-        <p class="skills-heading">Habilidades</p>
-        <div class="skill-row">
-          <div class="skill-meta"><span>Diseño Gráfico</span></div>
-          <div class="skill-bar"><div class="skill-fill" data-w="100"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-meta"><span>UX / UI</span></div>
-          <div class="skill-bar"><div class="skill-fill" data-w="100"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-meta"><span>Marketing Digital</span></div>
-          <div class="skill-bar"><div class="skill-fill" data-w="100"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-meta"><span>Desarrollo Front-End</span></div>
-          <div class="skill-bar"><div class="skill-fill" data-w="100"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-meta"><span>Branding</span></div>
-          <div class="skill-bar"><div class="skill-fill" data-w="100"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-meta"><span>Social Media</span></div>
-          <div class="skill-bar"><div class="skill-fill" data-w="100"></div></div>
-        </div>
+        <article class="win">
+          <div class="win-bar"><span class="dots"><b></b><b></b><b></b></span><span class="fname">readme.md</span></div>
+          <div class="readme">
+            <section>
+              <h2><span>##</span> quién soy</h2>
+              <p>Soy <strong>María</strong>, diseñadora y desarrolladora front-end en Málaga. garram.studio es mi marca: trabajo como autónoma, sin equipo ni intermediarios.</p>
+            </section>
+            <section>
+              <h2><span>##</span> qué hago</h2>
+              <p>Webs para negocios que empiezan o que todavía no tienen una. Las diseño, las programo y te ayudo con el contenido para redes, para que la gente llegue a ellas.</p>
+            </section>
+            <section>
+              <h2><span>##</span> lo que me importa</h2>
+              <p>Que entiendas lo que te propongo antes de empezar, y que tu web se vea bien en el móvil, que es desde donde te van a buscar.</p>
+            </section>
+          </div>
+        </article>
       </div>
     </div>
+  </section>
 
-    <div class="tools-section">
-      <p class="tools-heading">Herramientas</p>
-      <div class="tools-grid">
-        <span class="tool-pill">Figma</span>
-        <span class="tool-pill">Illustrator</span>
-        <span class="tool-pill">Photoshop</span>
-        <span class="tool-pill">InDesign</span>
-        <span class="tool-pill">HTML / CSS</span>
-        <span class="tool-pill">JavaScript</span>
-        <span class="tool-pill">React</span>
-        <span class="tool-pill">Node.js</span>
-        <span class="tool-pill">Vite</span>
-        <span class="tool-pill">Tailwind CSS</span>
-        <span class="tool-pill">WordPress</span>
-        <span class="tool-pill">Google Analytics</span>
+  <section class="sec" aria-label="Herramientas y preguntas">
+    <div class="wrap duo">
+      <article class="win">
+        <div class="win-bar"><span class="dots"><b></b><b></b><b></b></span><span class="fname">herramientas.json</span></div>
+<div class="code"><span class="p">{</span>
+  <span class="k">"diseño"</span><span class="p">:</span> <span class="p">[</span><span class="s">"Figma"</span>, <span class="s">"Illustrator"</span>,
+             <span class="s">"Photoshop"</span>, <span class="s">"InDesign"</span><span class="p">],</span>
+  <span class="k">"código"</span><span class="p">:</span> <span class="p">[</span><span class="s">"HTML"</span>, <span class="s">"CSS"</span>, <span class="s">"JavaScript"</span>,
+             <span class="s">"React"</span>, <span class="s">"Node.js"</span>, <span class="s">"Vite"</span>,
+             <span class="s">"Tailwind CSS"</span><span class="p">],</span>
+  <span class="k">"web"</span><span class="p">:</span> <span class="p">[</span><span class="s">"WordPress"</span>, <span class="s">"Google Analytics"</span><span class="p">]</span>
+<span class="p">}</span></div>
+      </article>
 
+      <article class="win">
+        <div class="win-bar"><span class="dots"><b></b><b></b><b></b></span><span class="fname">preguntas.txt</span></div>
+        <div class="faq">
+          <details>
+            <summary>¿Qué servicios ofreces?</summary>
+            <p>Diseño web, desarrollo front-end y contenido para redes, por separado o todo junto: de la idea a la web publicada.</p>
+          </details>
+          <details>
+            <summary>¿Trabajas en remoto?</summary>
+            <p>Sí, trabajo en remoto y me adapto a tus tiempos, con seguimiento durante todo el proyecto.</p>
+          </details>
+          <details>
+            <summary>¿Cuánto tarda una web?</summary>
+            <p>Depende del alcance. Un logotipo o una pieza de diseño puede llevar 1 o 2 semanas, y una web completa suele llevar entre 3 y 6.</p>
+          </details>
+          <details>
+            <summary>¿Con quién hablo durante el proyecto?</summary>
+            <p>Conmigo. Diseño, programo y publico yo, así que no hay intermediarios.</p>
+          </details>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="cta" aria-labelledby="cta-title">
+    <div class="wrap cta-grid">
+      <h2 id="cta-title">¿Hablamos?</h2>
+      <div class="cta-links">
+        <span class="cta-mail">mgarram02@gmail.com</span>
+        <a href="https://www.instagram.com/garram.studio/" target="_blank" rel="noopener">Instagram @garram.studio</a>
+        <a href="contacto.html" class="key key-ink"><kbd>⏎</kbd>Ir a contacto</a>
       </div>
     </div>
-    <div class="bento-section">
-      <p class="titulacion-heading">Preguntas frecuentes</p>
-      <div class="faq-list">
-        <div class="faq-item">
-          <button class="faq-question">¿Qué servicios ofreces?<span class="faq-icon">+</span></button>
-          <div class="faq-answer"><p>Diseño web, desarrollo front-end y contenido para redes, por separado o como proyecto completo: de la idea a la web publicada.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">¿Cómo trabajas, en remoto o presencial?<span class="faq-icon">+</span></button>
-          <div class="faq-answer"><p>Trabajo en formato freelance y remoto, adaptándome a los tiempos y necesidades de cada cliente, con seguimiento constante durante todo el proyecto.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">¿Cuánto tarda un proyecto en completarse?<span class="faq-icon">+</span></button>
-          <div class="faq-answer"><p>Depende del alcance: un logotipo o pieza de diseño puede tardar 1-2 semanas, mientras que una web completa suele llevar entre 3 y 6 semanas.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">¿Qué herramientas utilizas para trabajar?<span class="faq-icon">+</span></button>
-          <div class="faq-answer"><p>Figma, Adobe Illustrator, Photoshop e InDesign para diseño; HTML, CSS, JavaScript, React, Node.js, Vite y Tailwind CSS para desarrollo.</p></div>
-        </div>
-      </div>
-    </div>
-
-  </div>
+  </section>
 </main>
 
 <footer>
@@ -345,17 +168,5 @@
 </footer>
 
 <script src="nav.js"></script>
-<script>
-  window.addEventListener('load', () => {
-    document.querySelectorAll('.skill-fill').forEach(el => {
-      el.style.width = el.dataset.w + '%';
-    });
-  });
-  document.querySelectorAll('.faq-question').forEach(btn => {
-    btn.addEventListener('click', () => {
-      btn.parentElement.classList.toggle('open');
-    });
-  });
-</script>
 </body>
 </html>
