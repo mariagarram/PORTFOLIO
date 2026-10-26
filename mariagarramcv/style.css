@@ -24,13 +24,9 @@
   --serif: var(--display);
 }
 
-/* Titulares con la tipografía de la marca (solo tiene peso normal) */
-/* Bagel Fat One solo en titulares grandes: en tamaños pequeños se emborrona */
-.page-title, .hv-line {
-  font-family: var(--display);
-  font-weight: 400;
-  letter-spacing: 0;
-}
+/* Bagel Fat One se reserva para el logotipo y piezas muy grandes de la portada.
+   Solo tiene un peso: sin font-synthesis el navegador no la engorda al pedir negrita. */
+body { font-synthesis: none; }
 
 .nav-logo img { display: block; height: 30px; width: auto; }
 
@@ -185,8 +181,8 @@ nav {
 }
 
 .page-title {
-  font-size: clamp(2.5rem, 4.8vw, 4rem);
-  font-weight: 700;
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  font-weight: 800;
   line-height: 1.08;
   color: var(--white);
   letter-spacing: -0.02em;
@@ -705,7 +701,7 @@ footer {
 @media (max-width: 480px) {
   .nav-mobile { padding: 1.25rem 1rem; }
   .page { padding: 6rem 1rem 4rem; }
-  .page-title { font-size: 2.4rem; letter-spacing: 0; }
+  .page-title { font-size: 2rem; letter-spacing: -0.01em; }
   .footer-inner { padding: 0; }
 }
 
