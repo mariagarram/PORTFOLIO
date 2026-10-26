@@ -25,7 +25,8 @@
 }
 
 /* Titulares con la tipografía de la marca (solo tiene peso normal) */
-.page-title, .hv-line, .next-project-name, .stat-bento-num, .bento-card-name {
+/* Bagel Fat One solo en titulares grandes: en tamaños pequeños se emborrona */
+.page-title, .hv-line {
   font-family: var(--display);
   font-weight: 400;
   letter-spacing: 0;
@@ -184,7 +185,7 @@ nav {
 }
 
 .page-title {
-  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  font-size: clamp(2.5rem, 4.8vw, 4rem);
   font-weight: 700;
   line-height: 1.08;
   color: var(--white);
@@ -704,7 +705,7 @@ footer {
 @media (max-width: 480px) {
   .nav-mobile { padding: 1.25rem 1rem; }
   .page { padding: 6rem 1rem 4rem; }
-  .page-title { font-size: 2rem; letter-spacing: -0.01em; }
+  .page-title { font-size: 2.4rem; letter-spacing: 0; }
   .footer-inner { padding: 0; }
 }
 
