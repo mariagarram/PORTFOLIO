@@ -45,7 +45,7 @@
 .word .r1 { color: var(--pink); display: inline-block; }
 .word .r2 { color: var(--green); display: inline-block; margin-left: -0.16em; mix-blend-mode: screen; animation: solapa 1.1s cubic-bezier(.2,.8,.2,1) 0.25s both; }
 @keyframes solapa { from { transform: translateX(0.35em); } to { transform: translateX(0); } }
-.hero h1 { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.12; max-width: 22ch; }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.12; max-width: 22ch; }
 .hero-text p { color: var(--off); font-size: 1.05rem; line-height: 1.65; max-width: 46ch; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 0.3rem; }
 
@@ -128,8 +128,8 @@
 .cta-links { display: flex; flex-direction: column; gap: 0.75rem; min-width: 0; }
 .cta-mail { font-family: var(--mono); font-size: clamp(1rem, 2.2vw, 1.4rem); font-weight: 500; user-select: all; word-break: break-all; }
 .cta-links a { color: var(--ink); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
-.btn-ink { background: var(--ink); color: var(--white); align-self: flex-start; text-decoration: none !important; }
-.btn-ink:hover { background: #24242c; }
+.cta-links .btn-ink { background: var(--ink); color: var(--white); align-self: flex-start; text-decoration: none; }
+.cta-links .btn-ink:hover { background: #24242c; }
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
@@ -197,8 +197,8 @@
     <div class="wrap">
       <div class="hero-text">
         <p class="word" aria-hidden="true">ga<span class="r1">r</span><span class="r2">r</span>am</p>
-        <h1>Hola, soy María. Diseño y programo webs.</h1>
-        <p>También te ayudo con el contenido para redes. Trabajo como autónoma desde Málaga, así que hablas siempre conmigo.</p>
+        <h1>Hola mundo</h1>
+        <p>Soy María. Te ayudo con tu web y con el contenido para redes. Trabajo como autónoma desde Málaga, así que hablas siempre conmigo.</p>
         <div class="hero-actions">
           <a href="#proyectos" class="btn btn-pink">Ver proyectos</a>
           <a href="#contacto" class="btn btn-line">Escríbeme</a>
@@ -288,7 +288,7 @@
 
 <footer>
   <div class="footer-inner">
-    <p class="footer-copy">© 2026 garram.studio · María</p>
+    <p class="footer-copy">© 2026 garram.studio · María · Diseño y programo webs</p>
     <ul class="footer-nav">
       <li><a href="https://www.instagram.com/garram.studio/" target="_blank" rel="noopener">Instagram</a></li>
       <li><a href="https://www.linkedin.com/in/mariagarram" target="_blank" rel="noopener">LinkedIn</a></li>
