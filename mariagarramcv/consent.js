@@ -6,7 +6,7 @@
 (function () {
   // Pega aquí el token de Cloudflare Web Analytics (Panel de Cloudflare > Analytics & Logs > Web Analytics).
   // Mientras esté vacío, el banner funciona igual pero no se mide nada.
-  var CF_TOKEN = '';
+  var CF_TOKEN = 'da55990bb41b4d11b4f52f3bb4956859';
 
   var CLAVE = 'garram-cookies';
 
