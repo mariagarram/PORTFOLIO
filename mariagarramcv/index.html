@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>garram.studio</title>
-<meta name="description" content="garram.studio es la marca de María, diseñadora y desarrolladora front-end autónoma. Diseño y programo webs para negocios.">
+<meta name="description" content="garram.studio es la marca de María, diseñadora y desarrolladora front-end autónoma. Diseño y programo webs, y creo y gestiono contenido para redes sociales de negocios.">
 <link rel="stylesheet" href="fonts.css">
 <link rel="icon" type="image/svg+xml" href="img/garram-simbolo.svg">
 <link rel="stylesheet" href="style.css">
@@ -172,6 +172,8 @@
   .fl, .word .r2 { animation: none; }
   .fl > * { transition: none; }
 }
+.duo-even { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
+@media (max-width: 900px) { .duo-even { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -225,7 +227,7 @@
         <h1 class="hello"><span class="hello-prompt" aria-hidden="true">&gt;</span> <span class="hello-type">Hola mundo</span><span class="hello-caret" aria-hidden="true"></span></h1>
         <p class="word" aria-hidden="true">ga<span class="r1">r</span><span class="r2">r</span>am</p>
         <p class="lead">Es lo primero que escribe cualquiera que aprende a programar. Y es justo lo que le falta decir a muchos negocios: que existen, y dónde encontrarlos.</p>
-        <p>Soy María. Diseño y programo webs a medida para negocios que empiezan, y después te ayudo a llenarlas de contenido. Trabajo sola, así que lo hablas todo conmigo.</p>
+        <p>Soy María. Diseño y programo webs a medida, y creo y gestiono el contenido de las redes sociales de tu negocio. Trabajo sola, así que lo hablas todo conmigo.</p>
         <div class="hero-actions">
           <a href="#proyectos" class="key key-pink" data-key="p"><kbd>P</kbd>Ver proyectos</a>
           <a href="#contacto" class="key" data-key="c"><kbd>C</kbd>Escribirme</a>
@@ -236,6 +238,38 @@
         <div class="win-bar"><span class="dots"><b></b><b></b><b></b></span><span class="fname">maria.jpg</span></div>
         <img src="img/maria-hero.jpg" alt="María, diseñadora y desarrolladora de garram.studio">
       </figure>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="serv-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="mono-label">/servicios</span><h2 id="serv-title">Qué hago</h2></div>
+      </div>
+      <div class="duo duo-even">
+        <article class="win">
+          <div class="win-bar"><span class="dots"><b></b><b></b><b></b></span><span class="fname">web.html</span></div>
+          <div class="win-body md">
+            <h3><span>#</span> Webs</h3>
+            <ol>
+              <li><span><strong>Diseño a medida.</strong> Que se vea como tu negocio, no como una plantilla.</span></li>
+              <li><span><strong>Programada por mí.</strong> Rápida, adaptada al móvil y lista para Google.</span></li>
+              <li><span><strong>Publicada.</strong> Te la dejo en marcha y te explico cómo actualizarla.</span></li>
+            </ol>
+          </div>
+        </article>
+        <article class="win">
+          <div class="win-bar"><span class="dots"><b></b><b></b><b></b></span><span class="fname">redes.md</span></div>
+          <div class="win-body md">
+            <h3><span>#</span> Contenido para redes</h3>
+            <ol>
+              <li><span><strong>Lo creo.</strong> Fotos, vídeos, diseños y textos para tus publicaciones.</span></li>
+              <li><span><strong>Lo planifico.</strong> Un calendario para que tu cuenta no se quede parada.</span></li>
+              <li><span><strong>Lo gestiono.</strong> Publico por ti y te cuento qué funciona.</span></li>
+            </ol>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -318,7 +352,7 @@
   <div class="wrap footer-grid">
     <div class="footer-brand">
       <img src="img/garram-logotipo.svg" alt="garram.studio" height="34">
-      <p>Diseño y programo webs.</p>
+      <p>Webs y contenido para redes.</p>
     </div>
     <div class="footer-col">
       <p class="footer-h">/web</p>
